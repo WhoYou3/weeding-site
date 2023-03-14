@@ -17,6 +17,8 @@ interface HomepageProps {
   }
 }
 
+const test = "test"
+
 export default function Homepage(props: HomepageProps) {
   const { homepage } = props.data
 
