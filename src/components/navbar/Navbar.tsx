@@ -3,7 +3,12 @@ import styled from "styled-components"
 import * as P from "../navbar/parts"
 
 const Navbar = () => {
-  return <P.NavContainer>Navbar</P.NavContainer>
+  return (
+    <>
+      <div></div>
+      <P.NavContainer>Navbadsaadsadr</P.NavContainer>
+    </>
+  )
 }
 
 export default Navbar
