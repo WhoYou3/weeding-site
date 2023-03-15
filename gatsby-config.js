@@ -23,6 +23,7 @@ module.exports = {
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",
     "gatsby-plugin-vanilla-extract",
+    "gatsby-plugin-styled-components",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
