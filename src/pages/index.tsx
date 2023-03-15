@@ -22,6 +22,7 @@ export default function Homepage(props: HomepageProps) {
 
   return (
     <Layout>
+      <h1>TEST</h1>
       {homepage.blocks.map((block) => {
         const { id, blocktype, ...componentProps } = block
         const Component = sections[blocktype] || Fallback
