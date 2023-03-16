@@ -28,6 +28,8 @@
     "gatsby-plugin-sharp": "^5.0.0",
     "gatsby-plugin-styled-components": "^6.7.0",
     "gatsby-plugin-vanilla-extract": "^4.0.1",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
+    "gatsby-plugin-webfonts": "^2.3.2",
     "gatsby-source-datocms": "^5.0.0-3",
     "gatsby-source-filesystem": "^5.0.0",
     "gatsby-transformer-sharp": "^5.0.0",
@@ -35,6 +37,7 @@
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-feather": "^2.0.9",
+    "react-icons": "^4.8.0",
     "sharp": "^0.30.5",
     "styled-components": "^5.3.9"
   },

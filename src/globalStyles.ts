@@ -1,8 +1,9 @@
 export const colors = {
-  background: "#fff",
-  text: "#db3000",
-  primary: "#db3000",
-  muted: "#fffbfa",
-  active: "#751a00",
-  black: "#000",
+  primary: "rgb(243, 243, 243)",
+  linksColor: "rgb(92, 91, 90)",
+  hover: "#F8B1C4",
+}
+
+export const fonts = {
+  POPPINS: "Poppins",
 }
