@@ -19,6 +19,20 @@ module.exports = {
         environment: process.env.DATOCMS_ENVIRONMENT,
       },
     },
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Poppins",
+              variants: ["400", "500", "600", "700"],
+            },
+          ],
+        },
+      },
+    },
+
     "gatsby-plugin-sharp",
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",
