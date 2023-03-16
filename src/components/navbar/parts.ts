@@ -2,11 +2,13 @@ import styled from "styled-components"
 import { fonts, colors } from "../../globalStyles"
 
 interface BackgroundProps {
-  isMenu: boolean
+  isOpenHamburgerMenu: boolean
 }
 
 interface NavbarProps {
   isScrolled: boolean
+  mobileHideNav?: boolean
+  isOpenHamburgerMenu?: boolean
 }
 
 export const Navbar = styled.nav<NavbarProps>`
@@ -17,6 +19,14 @@ export const Navbar = styled.nav<NavbarProps>`
   top: 0;
   left: 0;
   right: 0;
+
+  @media screen and (max-width: 820px) {
+    transform: ${({ mobileHideNav, isOpenHamburgerMenu }) =>
+      mobileHideNav && !isOpenHamburgerMenu
+        ? "translateY(-150%)"
+        : "translateY(0)"};
+    transition: transform 0.5s ease-in-out;
+  }
 
   @media screen and (min-width: 820px) {
     height: ${({ isScrolled }) => (isScrolled ? "72px" : "162px")};
@@ -56,7 +66,7 @@ export const NavContainer = styled.div<NavbarProps>`
 
   @media screen and (min-width: 820px) {
     padding-left: 8rem;
-    svg.open-menu {
+    svg {
       display: none;
     }
     img {
@@ -75,10 +85,6 @@ export const LinksContainer = styled.div`
   font-weight: 600;
   font-size: 20px;
   width: 600px;
-
-  svg.arrow-down {
-    padding-top: 5px;
-  }
 
   a {
     color: ${colors.linksColor};
@@ -104,13 +110,12 @@ export const Background = styled.div<BackgroundProps>`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transform: ${({ isMenu }) =>
-    isMenu ? "translateY(0)" : "translateY(-100%)"};
-  transition: transform 1s ease-in-out;
+  transform: ${({ isOpenHamburgerMenu }) =>
+    isOpenHamburgerMenu ? "translateY(0) " : "translateY(-150%)"};
+  transition: transform 0.5s ease-in-out;
 
   svg.close-icon {
     position: absolute;
-
     top: 30px;
     right: 30px;
   }
@@ -127,7 +132,7 @@ export const HamburgerMenu = styled.div`
   justify-content: space-around;
 
   img {
-    height: fit-content;
+    height: 250px;
   }
   a {
     color: ${colors.linksColor};
@@ -136,6 +141,16 @@ export const HamburgerMenu = styled.div`
 
   a:hover {
     color: ${colors.hover};
+  }
+
+  @media screen and (max-height: 500px) {
+    a {
+      font-size: 16px;
+    }
+
+    img {
+      height: 100px;
+    }
   }
 `
 

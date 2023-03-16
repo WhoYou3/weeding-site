@@ -10,17 +10,24 @@ import {
 import * as P from "./parts"
 
 interface HamburgerMenuProps {
-  showMenu: () => void
-  isMenu: boolean
+  showHambugerMenu: () => void
+  isOpenHamburgerMenu: boolean
 }
 
-const NavbarMenu: React.FC<HamburgerMenuProps> = ({ showMenu, isMenu }) => {
+const NavbarMenu: React.FC<HamburgerMenuProps> = ({
+  showHambugerMenu,
+  isOpenHamburgerMenu,
+}) => {
   return (
     <>
-      <P.Background isMenu={isMenu}>
-        <AiOutlineClose className="close-icon" size={30} onClick={showMenu} />
+      <P.Background isOpenHamburgerMenu={isOpenHamburgerMenu}>
+        <AiOutlineClose
+          className="close-icon"
+          size={30}
+          onClick={showHambugerMenu}
+        />
         <P.HamburgerMenu>
-          <StaticImage src="../../assets/image/logo.jpg" alt="logo" />
+          <StaticImage src="../../assets/image/logo1.jpg" alt="logo" />
 
           <Link to="/">Strona Główna</Link>
           <Link to="/">Oferta</Link>

@@ -2,37 +2,51 @@ import React, { useState } from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { TbMenu2 } from "react-icons/tb"
-import { MdOutlineKeyboardArrowDown } from "react-icons/md"
 import HamburgerMenu from "./HamburgerMenu"
 
 import * as P from "../navbar/parts"
 
 const Navbar: React.FC = () => {
-  const [isMenu, setIsMenu] = useState<boolean>(false)
+  const [isOpenHamburgerMenu, setIsOpenHambugerMenu] = useState<boolean>(false)
   const [isScrolled, setIsScrolled] = useState<boolean>(false)
+  const [mobileScrolledHideNav, setMobileScrollHideNav] =
+    useState<boolean>(false)
+  const [pageYValue, setPageYValue] = useState<number>(0)
 
   const handleScroll = () => {
     const scrollTop = window.pageYOffset
     if (scrollTop > 0) {
       setIsScrolled(true)
-      console.log("ruszyłem")
-      console.log(isScrolled)
     } else {
       setIsScrolled(false)
-      console.log("wrociłem")
+    }
+  }
+
+  const hideNavMobile = () => {
+    const scroll: number = window.pageYOffset
+    setPageYValue(scroll)
+    if (pageYValue < scroll) {
+      setMobileScrollHideNav(true)
+    } else {
+      setMobileScrollHideNav(false)
     }
   }
 
   window.addEventListener("scroll", handleScroll)
+  window.addEventListener("scroll", hideNavMobile)
 
-  const showMenu = (): void => {
-    setIsMenu((prev: boolean) => !prev)
+  const showHambugerMenu = (): void => {
+    setIsOpenHambugerMenu((prev: boolean) => !prev)
   }
 
   return (
-    <P.Navbar isScrolled={isScrolled}>
+    <P.Navbar
+      isOpenHamburgerMenu={isOpenHamburgerMenu}
+      mobileHideNav={mobileScrolledHideNav}
+      isScrolled={isScrolled}
+    >
       <P.NavContainer isScrolled={isScrolled}>
-        <StaticImage src="../../assets/image/logo.jpg" alt="logo" />
+        <StaticImage src="../../assets/image/logo.png" alt="logo" />
 
         <P.LinksContainer>
           <Link to="/">Strona Główna </Link>
@@ -41,11 +55,14 @@ const Navbar: React.FC = () => {
           <Link to="/">Galeria</Link>
           <Link to="/">Kontakt</Link>
         </P.LinksContainer>
-        {!isMenu ? (
-          <TbMenu2 className="open-menu" onClick={showMenu} size={25} />
+        {!isOpenHamburgerMenu ? (
+          <TbMenu2 onClick={showHambugerMenu} size={25} />
         ) : null}
-        <HamburgerMenu showMenu={showMenu} isMenu={isMenu} />
       </P.NavContainer>
+      <HamburgerMenu
+        showHambugerMenu={showHambugerMenu}
+        isOpenHamburgerMenu={isOpenHamburgerMenu}
+      />
     </P.Navbar>
   )
 }
