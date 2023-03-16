@@ -31,9 +31,10 @@ const Navbar: React.FC = () => {
       setMobileScrollHideNav(false)
     }
   }
-
-  window.addEventListener("scroll", handleScroll)
-  window.addEventListener("scroll", hideNavMobile)
+  if (typeof window !== "undefined") {
+    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", hideNavMobile)
+  }
 
   const showHambugerMenu = (): void => {
     setIsOpenHambugerMenu((prev: boolean) => !prev)
