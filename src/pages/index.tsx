@@ -23,12 +23,15 @@ const GlobalStyle = createGlobalStyle`
 
 const Home = () => {
   return (
+
+
     <>
       <GlobalStyle />
       <Layout>
         <h1>TEST</h1>
       </Layout>
     </>
+
   )
 }
 
