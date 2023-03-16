@@ -1,62 +1,38 @@
-import * as React from "react"
-import { graphql } from "gatsby"
-import Layout from "../components/layout"
-import * as sections from "../components/sections"
-import Fallback from "../components/fallback"
-import SEOHead from "../components/head"
+import React from "react"
+import { createGlobalStyle } from "styled-components"
+import { Layout } from "../components"
 
-interface HomepageProps {
-  data: {
-    homepage: {
-      id: string
-      title: string
-      description: string
-      image: { id: string; url: string }
-      blocks: sections.HomepageBlock[]
-    }
+const GlobalStyle = createGlobalStyle`
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+  body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    height: 300vh;
+    background-color:#F8B1C4;
   }
-}
 
-export default function Homepage(props: HomepageProps) {
-  const { homepage } = props.data
+  a {
+    text-decoration: none;
+    color: black;
+  }
 
+`
+
+const Home = () => {
   return (
-    <Layout>
-      <h1>TEST</h1>
-      {homepage.blocks.map((block) => {
-        const { id, blocktype, ...componentProps } = block
-        const Component = sections[blocktype] || Fallback
-        return <Component key={id} {...(componentProps as any)} />
-      })}
-    </Layout>
+
+
+    <>
+      <GlobalStyle />
+      <Layout>
+        <h1>TEST</h1>
+      </Layout>
+    </>
+
   )
 }
-export const Head = (props: HomepageProps) => {
-  const { homepage } = props.data
-  return <SEOHead {...homepage} />
-}
-export const query = graphql`
-  {
-    homepage {
-      id
-      title
-      description
-      image {
-        id
-        url
-      }
-      blocks: content {
-        id
-        blocktype
-        ...HomepageHeroContent
-        ...HomepageFeatureListContent
-        ...HomepageCtaContent
-        ...HomepageLogoListContent
-        ...HomepageTestimonialListContent
-        ...HomepageBenefitListContent
-        ...HomepageStatListContent
-        ...HomepageProductListContent
-      }
-    }
-  }
-`
+
+export default Home
