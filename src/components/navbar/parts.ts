@@ -5,20 +5,34 @@ interface BackgroundProps {
   isMenu: boolean
 }
 
-export const Navbar = styled.nav`
+interface NavbarProps {
+  isScrolled: boolean
+}
+
+export const Navbar = styled.nav<NavbarProps>`
   height: 72px;
   background-color: ${colors.primary};
   display: flex;
   position: fixed;
   top: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
 
   @media screen and (min-width: 820px) {
-    height: 162px;
+    height: ${({ isScrolled }) => (isScrolled ? "72px" : "162px")};
+
+    ${({ isScrolled }) =>
+      isScrolled &&
+      `
+      background-color: rgba(243, 243, 243, 0.9);
+      backdrop-filter: blur(10px);
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    `}
+    transition: height 0.3s ease;
   }
 `
 
-export const NavContainer = styled.div`
+export const NavContainer = styled.div<NavbarProps>`
   max-width: 1500px;
   width: 100%;
   display: flex;
@@ -41,11 +55,13 @@ export const NavContainer = styled.div`
   }
 
   @media screen and (min-width: 820px) {
-    svg {
+    padding-left: 8rem;
+    svg.open-menu {
       display: none;
     }
     img {
-      height: 162px;
+      height: ${({ isScrolled }) => (isScrolled ? "72px" : "162px")};
+      transition: height 0.7s ease;
     }
   }
 `
@@ -59,6 +75,10 @@ export const LinksContainer = styled.div`
   font-weight: 600;
   font-size: 20px;
   width: 600px;
+
+  svg.arrow-down {
+    padding-top: 5px;
+  }
 
   a {
     color: ${colors.linksColor};
@@ -112,6 +132,10 @@ export const HamburgerMenu = styled.div`
   a {
     color: ${colors.linksColor};
     font-size: 22px;
+  }
+
+  a:hover {
+    color: ${colors.hover};
   }
 `
 
