@@ -13,7 +13,7 @@ const Navbar: React.FC = () => {
     useState<boolean>(false)
   const [pageYValue, setPageYValue] = useState<number>(0)
 
-  const handleScroll = () => {
+  const handleScroll = (): void => {
     const scrollTop = window.pageYOffset
     if (scrollTop > 0) {
       setIsScrolled(true)
@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
     }
   }
 
-  const hideNavMobile = () => {
+  const hideNavMobile = (): void => {
     const scroll: number = window.pageYOffset
     setPageYValue(scroll)
     if (pageYValue < scroll) {
