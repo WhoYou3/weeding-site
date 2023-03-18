@@ -11,9 +11,14 @@ export const ButtonPrimary = styled.button`
   height: 50px;
   font-size: 18px;
   color: black;
+  font-weight: 500;
 
   :hover {
     color: ${colors.hover};
     cursor: pointer;
   }
+`
+
+export const ButtonSecondary = styled(ButtonPrimary)`
+  background-color: white;
 `

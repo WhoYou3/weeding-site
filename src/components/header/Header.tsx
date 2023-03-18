@@ -1,5 +1,4 @@
 import React from "react"
-import { StaticImage } from "gatsby-plugin-image"
 import * as P from "./parts"
 import * as U from "../../UI/UI"
 
