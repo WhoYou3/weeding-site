@@ -33,6 +33,11 @@ module.exports = {
               variants: ["400"],
               subsets: ["latin-ext"],
             },
+            {
+              family: `Playfair Display`,
+              variants: [`400`, `700`],
+              subsets: ["latin-ext"],
+            },
           ],
         },
       },
