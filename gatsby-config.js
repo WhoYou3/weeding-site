@@ -27,6 +27,7 @@ module.exports = {
             {
               family: "Poppins",
               variants: ["400", "500", "600", "700"],
+              subsets: ["latin-ext"],
             },
             {
               family: "Great Vibes",
