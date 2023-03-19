@@ -1,13 +1,17 @@
 import styled from "styled-components"
 import { colors } from "../globalStyles"
 
+interface props {
+  space?: string
+}
+
 export const ButtonPrimary = styled.button`
   border-radius: 10px;
   background: none;
   background-color: ${colors.primary};
   outline: none;
   border: none;
-  width: 150px;
+  min-width: 150px;
   height: 50px;
   font-size: 18px;
   color: black;
@@ -19,6 +23,8 @@ export const ButtonPrimary = styled.button`
   }
 `
 
-export const ButtonSecondary = styled(ButtonPrimary)`
+export const ButtonSecondary = styled(ButtonPrimary)<props>`
   background-color: white;
+  margin-top: ${(props) => props.space || ""};
+  margin-bottom: ${(props) => props.space || ""};
 `

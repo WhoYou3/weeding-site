@@ -17,7 +17,7 @@ const AboutMe: React.FC = () => {
         const windowHeight = window.innerHeight
         if (elementTop + elementHeight < windowHeight) {
           setIsVisible(true)
-        } else setIsVisible(false)
+        }
       }
     }
     if (typeof window !== "undefined") {
