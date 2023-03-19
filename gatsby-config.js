@@ -28,6 +28,16 @@ module.exports = {
               family: "Poppins",
               variants: ["400", "500", "600", "700"],
             },
+            {
+              family: "Great Vibes",
+              variants: ["400"],
+              subsets: ["latin-ext"],
+            },
+            {
+              family: `Playfair Display`,
+              variants: [`400`, `700`],
+              subsets: ["latin-ext"],
+            },
           ],
         },
       },

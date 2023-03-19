@@ -1,6 +1,7 @@
 import React from "react"
 import { createGlobalStyle } from "styled-components"
-import { Layout } from "../components"
+import { Header, Layout } from "../components"
+import AboutMe from "../components/interlude/AboutMe"
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
@@ -11,7 +12,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     height: 300vh;
-    background-color:#F8B1C4;
+    
+    width: 100%;
   }
 
   a {
@@ -23,15 +25,13 @@ const GlobalStyle = createGlobalStyle`
 
 const Home = () => {
   return (
-
-
     <>
       <GlobalStyle />
       <Layout>
-        <h1>TEST</h1>
+        <Header />
+        <AboutMe />
       </Layout>
     </>
-
   )
 }
 
