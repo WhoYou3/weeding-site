@@ -20,8 +20,13 @@ const AboutMe: React.FC = () => {
         } else setIsVisible(false)
       }
     }
-    window.addEventListener("scroll", handleScroll)
-    return (): void => window.removeEventListener("scroll", handleScroll)
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll)
+    }
+    return (): void => {
+      if (typeof window !== "undefined")
+        window.removeEventListener("scroll", handleScroll)
+    }
   }, [])
 
   return (
