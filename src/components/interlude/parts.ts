@@ -1,5 +1,17 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import { colors, fonts } from "../../globalStyles"
+
+interface ContainerProps {
+  animate: boolean
+}
+
+const fadeIn = keyframes`
+from {
+  opacity: 0
+}
+to {
+  opacity: 1
+}`
 
 export const Wrapper = styled.section`
   margin: 1rem;
@@ -12,8 +24,10 @@ export const Wrapper = styled.section`
   }
 `
 
-export const ImageContainer = styled.div`
+export const ImageContainer = styled.div<ContainerProps>`
   padding: 1rem;
+  opacity: 0;
+  animation: ${({ animate }) => animate && fadeIn} 1s ease-in-out forwards;
   img {
     scale: 1.2;
   }
@@ -36,7 +50,7 @@ export const ImageContainer = styled.div`
   }
 `
 
-export const Container = styled.div`
+export const Container = styled.div<ContainerProps>`
   margin: 1rem;
   background-color: ${colors.primary};
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
@@ -46,6 +60,9 @@ export const Container = styled.div`
   padding: 1rem 2rem 2rem 2rem;
 
   height: fit-content;
+  transform: ${({ animate }) =>
+    animate ? "translateX(0)" : "translateX(-150%)"};
+  transition: 0.5s ease-in;
 
   @media screen and (min-width: 900px) {
     width: 50%;
