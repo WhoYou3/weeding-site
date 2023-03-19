@@ -1,6 +1,6 @@
 import React from "react"
 import { createGlobalStyle } from "styled-components"
-import { Header, Layout } from "../components"
+import { Header, Layout, Workship } from "../components"
 import AboutMe from "../components/interlude/AboutMe"
 
 const GlobalStyle = createGlobalStyle`
@@ -30,6 +30,7 @@ const Home = () => {
       <Layout>
         <Header />
         <AboutMe />
+        <Workship />
       </Layout>
     </>
   )
