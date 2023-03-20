@@ -1,19 +1,22 @@
 import React from "react"
 import { createGlobalStyle } from "styled-components"
-import { Header, Layout, Workship } from "../components"
+import { Header, Layout, ParalaxPhoto, Workship } from "../components"
+
 import AboutMe from "../components/aboutme/AboutMe"
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-
+  
   body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    height: 300vh;
     
+    height: 600vh;
     width: 100%;
+    
+    
   }
 
   a {
@@ -23,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
 
 `
 
-const Home = () => {
+const Home: React.FC = () => {
   return (
     <>
       <GlobalStyle />
@@ -31,6 +34,7 @@ const Home = () => {
         <Header />
         <AboutMe />
         <Workship />
+        <ParalaxPhoto />
       </Layout>
     </>
   )

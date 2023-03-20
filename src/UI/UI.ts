@@ -3,15 +3,18 @@ import { colors } from "../globalStyles"
 
 interface props {
   space?: string
+  scaleReducer?: string
 }
 
-export const ButtonPrimary = styled.button`
+export const ButtonPrimary = styled.button<props>`
   border-radius: 10px;
   background: none;
   background-color: ${colors.primary};
   outline: none;
   border: none;
   min-width: 150px;
+  scale: ${(props) => (props.scaleReducer ? `${props.scaleReducer}` : "1")};
+
   height: 50px;
   font-size: 18px;
   color: black;
