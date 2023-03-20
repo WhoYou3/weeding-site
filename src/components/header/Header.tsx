@@ -11,7 +11,7 @@ const Header = () => {
         </P.Title>
         <U.ButtonPrimary>Sprawdź Ofertę</U.ButtonPrimary>
       </P.ContentWrapper>
-      <P.Shadow></P.Shadow>
+      <P.Shadow />
     </P.Header>
   )
 }
