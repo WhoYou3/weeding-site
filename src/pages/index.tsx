@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     
-    height: 600vh;
+    height: 900vh;
     width: 100%;
     
     
