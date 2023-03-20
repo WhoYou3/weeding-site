@@ -10,6 +10,7 @@ export const Wrapper = styled.section`
   align-items: center;
   margin-top: 2rem;
   margin-bottom: 2rem;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 
   @media screen and (min-width: 1000px) {
     margin-top: 6rem;
@@ -19,7 +20,7 @@ export const Wrapper = styled.section`
 `
 
 export const Title = styled.h2`
-  font-family: ${fonts.GREATVIBES};
+  font-family: ${fonts.POPPINS};
   text-align: center;
 `
 

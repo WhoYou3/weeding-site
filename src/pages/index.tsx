@@ -1,7 +1,7 @@
 import React from "react"
 import { createGlobalStyle } from "styled-components"
 import { Header, Layout, Workship } from "../components"
-import AboutMe from "../components/interlude/AboutMe"
+import AboutMe from "../components/aboutme/AboutMe"
 
 const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');

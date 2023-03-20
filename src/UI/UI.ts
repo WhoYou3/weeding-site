@@ -16,6 +16,7 @@ export const ButtonPrimary = styled.button`
   font-size: 18px;
   color: black;
   font-weight: 500;
+  padding: 0 15px;
 
   :hover {
     color: ${colors.hover};
