@@ -8,12 +8,14 @@ const Photo: React.FC = () => {
   const parallaxRef = useRef<HTMLDivElement>(null)
 
   useLayoutEffect(() => {
-    if (parallaxRef.current && typeof window !== "undefined") {
-      new SimpleParallax(parallaxRef.current, {
-        delay: 1,
-        transition: "cubic-bezier(0,0,0,1)",
-        scale: 1.5,
-      })
+    if (typeof window !== "undefined") {
+      if (parallaxRef.current) {
+        new SimpleParallax(parallaxRef.current, {
+          delay: 1,
+          transition: "cubic-bezier(0,0,0,1)",
+          scale: 1.5,
+        })
+      }
     }
   }, [parallaxRef])
 
@@ -27,5 +29,3 @@ const Photo: React.FC = () => {
 }
 
 export default Photo
-
-// export default Photo
