@@ -37,16 +37,26 @@ export const ImageContainer = styled.div<ContainerProps>`
     order: -1;
     position: absolute;
     right: -10px;
-    top: 100px;
-  }
-  img {
-    scale: 1;
+    top: 50px;
+
+    img {
+      scale: 1;
+      height: 600px;
+    }
   }
 
   @media screen and (min-width: 1350px) {
-    right: 10%;
+    right: 8%;
     top: 0;
     width: 400px;
+  }
+
+  @media screen and (min-width: 1950px) {
+    right: 12%;
+    top: -30px;
+    img {
+      height: 500px;
+    }
   }
 `
 

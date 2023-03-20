@@ -38,17 +38,21 @@ const AboutMe: React.FC = () => {
         </P.Sentence>
       </P.Container>
       <P.ImageContainer animate={isVisible}>
-        <StaticImage src="../../assets/image/portrait.jpg" alt="portrait" />
+        <StaticImage
+          placeholder="blurred"
+          src="../../assets/image/portrait.jpg"
+          alt="portrait"
+        />
       </P.ImageContainer>
       <P.Container animate={isVisible}>
         <P.Paragraph>
-          "Witaj! Nazywam się Anna Kopta Irzyk i jestem założycielką firmy
+          "Witaj! Nazywam się Anna Kopta-Irzyk i jestem założycielką firmy
           "Kuźnia Marzeń". Od zawsze marzyłam o tym, aby pomagać parom młodym w
           organizacji wymarzonych ślubów i uroczystości. Dzięki mojej pasji,
           kreatywności i zaangażowaniu, postanowiłam założyć firmę, która
           oferuje kompleksowe usługi w planowaniu i organizacji wyjątkowych
           wydarzeń. W mojej pracy stawiam na indywidualne podejście do każdej
-          pary, aby zrozumieć ich potrzeby i marzenia, i pomóc im w ich
+          pary, aby zrozumieć ich potrzeby i marzenia oraz pomóc im w ich
           realizacji.
         </P.Paragraph>
         <Link to="/">

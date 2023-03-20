@@ -28,7 +28,7 @@ const Testamonials: React.FC = () => {
           <p>Organizacja przyjęć i eventów</p>
         </P.Task>
       </P.TasksContainer>
-      <ButtonSecondary space="auto">Napisz do mnie</ButtonSecondary>
+      <ButtonSecondary space="auto">Skontaktuj się ze mną</ButtonSecondary>
     </P.Wrapper>
   )
 }
