@@ -14,7 +14,7 @@ export const Wrapper = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 `
 
 export const FrameWrapper = styled.div<propsFrameWrapper>`
