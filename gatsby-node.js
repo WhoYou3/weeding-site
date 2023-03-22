@@ -750,3 +750,18 @@
 //     component: require.resolve("./src/components/footer.tsx"),
 //   })
 // }
+
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  if (stage === "build-html") {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /simple-parallax-js/,
+            use: ["null-loader"],
+          },
+        ],
+      },
+    })
+  }
+}
