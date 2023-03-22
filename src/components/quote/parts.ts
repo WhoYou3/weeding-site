@@ -9,7 +9,7 @@ export const Wrapper = styled.section`
   background-color: ${colors.primary};
   height: 200px;
   width: 100%;
-  margin-top: 2rem;
+  margin: 2rem 0;
   position: relative;
   display: flex;
   justify-content: center;
