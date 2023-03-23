@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     
-    height: 900vh;
+
     width: 100%;
     
     
@@ -29,6 +29,10 @@ const GlobalStyle = createGlobalStyle`
   a {
     text-decoration: none;
     color: black;
+  }
+
+  li {
+    list-style: none;
   }
 
 `

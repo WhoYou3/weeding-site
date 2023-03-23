@@ -6,6 +6,6 @@ export const colors = {
 
 export const fonts = {
   POPPINS: "Poppins",
-  GREATVIBES: "Italianno",
+  ITALIANNO: "Italianno",
   PLAYFAIR: "Playfair Display",
 }
