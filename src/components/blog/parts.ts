@@ -86,6 +86,9 @@ export const ImageGroup = styled.div`
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+  height: 50vmin;
+  width: 50vmin;
+  margin: auto;
 
   @media screen and (max-width: 620px) {
     :active > :nth-child(1) {
@@ -100,6 +103,20 @@ export const ImageGroup = styled.div`
     }
 
     :active > :nth-child(4) {
+      transform: translate(80%, -105%) rotate(-12deg);
+    }
+    :hover > :nth-child(1) {
+      transform: translate(-50%, -90%) rotate(12deg);
+    }
+    :hover > :nth-child(2) {
+      transform: translate(-40%, 80%) rotate(-12deg);
+    }
+
+    :hover > :nth-child(3) {
+      transform: translate(80%, 30%) rotate(0deg);
+    }
+
+    :hover > :nth-child(4) {
       transform: translate(80%, -105%) rotate(-12deg);
     }
   }
@@ -128,6 +145,10 @@ export const ImageGroup = styled.div`
     :active > :nth-child(4) {
       transform: translate(60%, 5%) rotate(5deg);
     }
+  }
+
+  @media screen and (min-width: 1000px) {
+    width: 120vmin;
   }
 `
 
@@ -173,18 +194,3 @@ export const Card = styled.div`
     transform: translate(10%, 3%) rotate(5deg);
   }
 `
-// export const ImageContainer = styled.div<ImageContainerProps>`
-//   position: absolute;
-//   left: ${(props) => (props.left ? `${props.left}` : null)};
-//   right: ${(props) => (props.right ? `${props.right}` : null)};
-//   top: ${(props) => (props.top ? `${props.top}` : null)};
-//   bottom: ${(props) => (props.bottom ? `${props.bottom}` : null)};
-//   transform: ${(props) => (props.transform ? `${props.transform}` : null)};
-//   margin-left: 1rem;
-//   margin-right: 1rem;
-//   z-index: ${(props) => (props.zindex ? `${props.zindex}` : null)};
-//   img {
-//     height: 15vh;
-//     width: ${(props) => (props.width ? `${props.width}` : null)};
-//   }
-// `
