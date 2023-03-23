@@ -16,22 +16,28 @@ const Blog: React.FC = () => {
     }
   }, [parallaxRef])
   return (
-    <P.Wrapper ref={parallaxRef}>
-      <P.Shadow></P.Shadow>
+    <P.Container className="testuje">
+      <P.Wrapper ref={parallaxRef}>
+        <P.Shadow></P.Shadow>
+      </P.Wrapper>
       <P.ContentContainer>
         <P.TextContainer>
-          <P.Text>Sprawdź bloga</P.Text>
+          <P.Text>
+            Jeżeli chcesz być na bieżąco z najnowszymi ślubnymi trendami i
+            poznać przed jakimi trudnymi wyborami stoją Państwo Młodzi
+            koniecznie <span>śledź mojego Bloga.</span>
+          </P.Text>
         </P.TextContainer>
-        <P.ImageContainer>
-          <div>
-            <StaticImage
-              src="../../assets/image/weddingDance.jpg"
-              alt="wedding"
-            ></StaticImage>
-          </div>
-        </P.ImageContainer>
+        <P.ImagesContainer>
+          <P.ImageGroup>
+            <P.Card></P.Card>
+            <P.Card></P.Card>
+            <P.Card></P.Card>
+            <P.Card></P.Card>
+          </P.ImageGroup>
+        </P.ImagesContainer>
       </P.ContentContainer>
-    </P.Wrapper>
+    </P.Container>
   )
 }
 
