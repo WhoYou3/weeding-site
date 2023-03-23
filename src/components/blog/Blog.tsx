@@ -1,6 +1,7 @@
-import { StaticImage } from "gatsby-plugin-image"
 import React, { useRef, useEffect } from "react"
+
 import SimpleParallax from "simple-parallax-js"
+
 import * as P from "./parts"
 
 const Blog: React.FC = () => {
@@ -30,10 +31,21 @@ const Blog: React.FC = () => {
         </P.TextContainer>
         <P.ImagesContainer>
           <P.ImageGroup>
+            <P.CardWrapper>
+              <P.Card blogImage1={true}></P.Card>
+            </P.CardWrapper>
+            <P.CardWrapper>
+              <P.Card blogImage2={true}></P.Card>
+            </P.CardWrapper>
+            <P.CardWrapper>
+              <P.Card blogImage3={true}></P.Card>
+            </P.CardWrapper>
+            <P.CardWrapper>
+              <P.Card blogImage4={true}></P.Card>
+            </P.CardWrapper>
+            {/* <P.Card></P.Card>
             <P.Card></P.Card>
-            <P.Card></P.Card>
-            <P.Card></P.Card>
-            <P.Card></P.Card>
+            <P.Card></P.Card> */}
           </P.ImageGroup>
         </P.ImagesContainer>
       </P.ContentContainer>
