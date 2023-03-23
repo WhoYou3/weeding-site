@@ -120,6 +120,13 @@ export const Card = styled.div`
   position: absolute;
 
   transition: transform 800ms cubic-bezier(0.05, 0.43, 0.25, 0.95);
+  @media screen and (min-width: 1000px) {
+    width: 23vmin;
+  }
+
+  @media screen and (min-width: 1400px) {
+    width: 35vmin;
+  }
 
   :nth-child(1) {
     background: url(${blogImage01});
