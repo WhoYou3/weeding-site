@@ -86,40 +86,60 @@ export const ImageGroup = styled.div`
   position: relative;
   top: 50%;
   transform: translateY(-50%);
-  :hover > :nth-child(1) {
-    transform: translate(-160%, 15%) rotate(-35deg);
+
+  @media screen and (max-width: 620px) {
+    :active > :nth-child(1) {
+      transform: translate(-50%, -90%) rotate(12deg);
+    }
+    :active > :nth-child(2) {
+      transform: translate(-40%, 80%) rotate(-12deg);
+    }
+
+    :active > :nth-child(3) {
+      transform: translate(80%, 30%) rotate(0deg);
+    }
+
+    :active > :nth-child(4) {
+      transform: translate(80%, -105%) rotate(-12deg);
+    }
   }
-  :active > :nth-child(1) {
-    transform: translate(-160%, 15%) rotate(-35deg);
-  }
-  :hover > :nth-child(2) {
-    transform: translate(-60%, 5%) rotate(-15deg);
-  }
-  :active > :nth-child(2) {
-    transform: translate(-60%, 5%) rotate(-15deg);
-  }
-  :hover > :nth-child(3) {
-    transform: translate(160%, 15%) rotate(35deg);
-  }
-  :active > :nth-child(3) {
-    transform: translate(160%, 15%) rotate(35deg);
-  }
-  :hover > :nth-child(4) {
-    transform: translate(60%, 5%) rotate(5deg);
-  }
-  :active > :nth-child(4) {
-    transform: translate(60%, 5%) rotate(5deg);
+  @media screen and (min-width: 620px) {
+    :hover > :nth-child(1) {
+      transform: translate(-160%, 15%) rotate(-35deg);
+    }
+    :active > :nth-child(1) {
+      transform: translate(-160%, 15%) rotate(-35deg);
+    }
+    :hover > :nth-child(2) {
+      transform: translate(-60%, 5%) rotate(-15deg);
+    }
+    :active > :nth-child(2) {
+      transform: translate(-60%, 5%) rotate(-15deg);
+    }
+    :hover > :nth-child(3) {
+      transform: translate(160%, 15%) rotate(35deg);
+    }
+    :active > :nth-child(3) {
+      transform: translate(160%, 15%) rotate(35deg);
+    }
+    :hover > :nth-child(4) {
+      transform: translate(60%, 5%) rotate(5deg);
+    }
+    :active > :nth-child(4) {
+      transform: translate(60%, 5%) rotate(5deg);
+    }
   }
 `
 
 export const Card = styled.div`
-  width: 20vmin;
+  width: 24vmin;
   aspect-ratio: 5/7;
   background-color: rgba(0, 0, 0);
   border-radius: 5px;
   position: absolute;
 
   transition: transform 800ms cubic-bezier(0.05, 0.43, 0.25, 0.95);
+
   @media screen and (min-width: 1000px) {
     width: 23vmin;
   }
@@ -129,10 +149,9 @@ export const Card = styled.div`
   }
 
   :nth-child(1) {
-    background: url(${blogImage01});
-
-    background-size: cover;
     transform: translateX(-10%) rotate(-1deg);
+    background: url(${blogImage01});
+    background-size: cover;
   }
   :nth-child(2) {
     background: url(${blogImage02});
