@@ -9,20 +9,6 @@ const Quote: React.FC = () => {
         "Miłość jest największą siłą na świecie." -
         <span> Martin Luther King Jr.</span>
       </P.Title>
-      <P.FrameWrapper leftFrame>
-        <StaticImage
-          src="../../assets/image/frame.png"
-          alt="frame"
-          height={100}
-        />
-      </P.FrameWrapper>
-      <P.FrameWrapper rightFrame>
-        <StaticImage
-          src="../../assets/image/frame.png"
-          alt="frame"
-          height={100}
-        />
-      </P.FrameWrapper>
     </P.Wrapper>
   )
 }
