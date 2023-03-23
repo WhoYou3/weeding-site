@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react"
+import React, { useRef, useLayoutEffect } from "react"
 import SimpleParallax from "simple-parallax-js"
 import { ButtonSecondary } from "../../UI/UI"
 
@@ -7,13 +7,15 @@ import * as P from "./parts"
 const Photo: React.FC = () => {
   const parallaxRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    if (parallaxRef.current) {
-      new SimpleParallax(parallaxRef.current, {
-        delay: 1,
-        transition: "cubic-bezier(0,0,0,1)",
-        scale: 1.5,
-      })
+  useLayoutEffect(() => {
+    if (typeof window !== "undefined") {
+      if (parallaxRef.current) {
+        new SimpleParallax(parallaxRef.current, {
+          delay: 1,
+          transition: "cubic-bezier(0,0,0,1)",
+          scale: 1.5,
+        })
+      }
     }
   }, [parallaxRef])
 
@@ -27,5 +29,3 @@ const Photo: React.FC = () => {
 }
 
 export default Photo
-
-// export default Photo

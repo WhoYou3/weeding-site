@@ -750,6 +750,9 @@
 //     component: require.resolve("./src/components/footer.tsx"),
 //   })
 // }
+
+
+
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   if (stage === "build-html") {
     actions.setWebpackConfig({
