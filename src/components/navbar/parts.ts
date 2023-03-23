@@ -19,7 +19,7 @@ export const Navbar = styled.nav<NavbarProps>`
   top: 0;
   left: 0;
   right: 0;
-  z-index: 10;
+  z-index: 99999;
 
   @media screen and (max-width: 820px) {
     transform: ${({ mobileHideNav, isOpenHamburgerMenu }) =>
