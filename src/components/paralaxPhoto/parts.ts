@@ -9,7 +9,7 @@ export const ParalaxContainer = styled.div`
   background-position: 30%;
 
   position: relative;
-  overflow: hidden;
+  margin: 2rem 0;
 
   @media screen and (min-width: 820px) {
     height: 100vh;

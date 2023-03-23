@@ -1,6 +1,13 @@
 import React from "react"
 import { createGlobalStyle } from "styled-components"
-import { Header, Layout, ParalaxPhoto, Workship } from "../components"
+import {
+  Header,
+  Layout,
+  ParalaxPhoto,
+  Workship,
+  Quote,
+  Blog,
+} from "../components"
 
 import AboutMe from "../components/aboutme/AboutMe"
 
@@ -35,6 +42,8 @@ const Home: React.FC = () => {
         <AboutMe />
         <Workship />
         <ParalaxPhoto />
+        <Quote />
+        <Blog />
       </Layout>
     </>
   )
