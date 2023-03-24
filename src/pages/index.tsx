@@ -7,14 +7,16 @@ import {
   Workship,
   Quote,
   Blog,
+  AboutMeHomePage,
 } from "../components"
 
-import AboutMe from "../components/aboutme/AboutMe"
-
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-  
+html {
+  scroll-behavior: smooth;
+}
+
   body {
     box-sizing: border-box;
     margin: 0;
@@ -22,6 +24,8 @@ const GlobalStyle = createGlobalStyle`
     
 
     width: 100%;
+    height: 600vh;
+    scroll-behavior: smooth;
     
     
   }
@@ -39,17 +43,23 @@ const GlobalStyle = createGlobalStyle`
 
 const Home: React.FC = () => {
   return (
-    <>
+    <div>
       <GlobalStyle />
       <Layout>
-        <Header />
-        <AboutMe />
+        <Header
+          sentence1="Wasza miłość,"
+          sentence2="Nasza praca,"
+          sentence3="Twój niezapomniany ślub"
+          show={true}
+          backgroundImage="image1"
+        />
+        <AboutMeHomePage />
         <Workship />
         <ParalaxPhoto />
         <Quote />
         <Blog />
       </Layout>
-    </>
+    </div>
   )
 }
 

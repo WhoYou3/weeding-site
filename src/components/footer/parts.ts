@@ -1,6 +1,8 @@
 import styled from "styled-components"
 import { fonts } from "../../globalStyles"
 
+// TODO: Hover Links and Active page
+
 export const Footer = styled.footer`
   background: rgb(0, 0, 0);
   display: flex;

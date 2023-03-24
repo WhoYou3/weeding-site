@@ -6,7 +6,7 @@ import {
   AiOutlineTwitter,
   AiFillInstagram,
   AiOutlineClose,
-} from "react-icons/ai"
+} from "react-icons/Ai"
 import * as P from "./parts"
 
 interface HamburgerMenuProps {
@@ -27,9 +27,10 @@ const NavbarMenu: React.FC<HamburgerMenuProps> = ({
           onClick={showHambugerMenu}
         />
         <P.HamburgerMenu>
-          <StaticImage src="../../assets/image/logo1.jpg" alt="logo" />
+          <StaticImage src="../../assets/image/logo.png" alt="logo" />
 
           <Link to="/">Strona Główna</Link>
+          <Link to="/omnie">O mnie</Link>
           <Link to="/">Oferta</Link>
           <Link to="/">Blog</Link>
           <Link to="/">Galeria</Link>

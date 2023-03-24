@@ -4,6 +4,7 @@ import { colors } from "../globalStyles"
 interface props {
   space?: string
   scaleReducer?: string
+  showing?: boolean
 }
 
 export const ButtonPrimary = styled.button<props>`
@@ -14,7 +15,7 @@ export const ButtonPrimary = styled.button<props>`
   border: none;
   min-width: 150px;
   scale: ${(props) => (props.scaleReducer ? `${props.scaleReducer}` : "1")};
-
+  display: ${(props) => (props.showing ? "block" : "none")};
   height: 50px;
   font-size: 18px;
   color: black;

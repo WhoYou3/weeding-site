@@ -1,11 +1,23 @@
 import styled from "styled-components"
 import headerPhoto from "../../assets/image/header-photo.jpg"
+import headerAboutBackground from "../../assets/image/AboutHeaderBackground.jpg"
+
 import { colors, fonts } from "../../globalStyles"
 
-export const Header = styled.header`
+interface HeaderProps {
+  backgroundImage?: string
+}
+
+export const Header = styled.header<HeaderProps>`
   height: 100dvh;
 
-  background-image: url(${headerPhoto});
+  /* background-image: url(${headerPhoto}); */
+  ${(props) =>
+    ({
+      image1: `background-image: url(${headerPhoto});`,
+      image2: `background-image: url(${headerAboutBackground});`,
+    }[props.backgroundImage])}
+
   background-position: 70%;
   background-size: cover;
   background-repeat: no-repeat;
