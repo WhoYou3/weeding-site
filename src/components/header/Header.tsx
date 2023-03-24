@@ -7,7 +7,8 @@ const Header = () => {
     <P.Header>
       <P.ContentWrapper>
         <P.Title>
-          Wasza miłość, Nasza praca <br /> Twój niezapomniany ślub
+          Wasza miłość,
+          <br /> Nasza praca <br /> Twój niezapomniany ślub
         </P.Title>
         <U.ButtonPrimary>Sprawdź Ofertę</U.ButtonPrimary>
       </P.ContentWrapper>

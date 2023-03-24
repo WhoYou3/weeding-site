@@ -30,7 +30,7 @@ module.exports = {
               subsets: ["latin-ext"],
             },
             {
-              family: "Italianno",
+              family: "Great Vibes",
               variants: ["400"],
               subsets: ["latin-ext"],
             },

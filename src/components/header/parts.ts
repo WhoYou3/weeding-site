@@ -35,7 +35,7 @@ export const Shadow = styled.div`
 
 export const Title = styled.h1`
   text-align: center;
-  font-family: ${fonts.ITALIANNO}, sans-serif;
+  font-family: ${fonts.GREATVIBES}, sans-serif;
   color: ${colors.primary};
   font-size: 36px;
   letter-spacing: 3px;
