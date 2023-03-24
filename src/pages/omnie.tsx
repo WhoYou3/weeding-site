@@ -2,7 +2,7 @@ import React from "react"
 import "../../gatsby-browser.js"
 
 import { GlobalStyle } from "."
-import { Header, Layout } from "../components"
+import { AboutMe, Header, Layout } from "../components"
 
 const Omnie = () => {
   return (
@@ -14,6 +14,7 @@ const Omnie = () => {
           show={false}
           sentence1="Poznajmy się lepiej"
         ></Header>
+        <AboutMe />
       </Layout>
     </div>
   )

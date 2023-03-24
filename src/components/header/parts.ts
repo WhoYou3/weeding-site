@@ -11,14 +11,14 @@ interface HeaderProps {
 export const Header = styled.header<HeaderProps>`
   height: 100dvh;
 
-  /* background-image: url(${headerPhoto}); */
   ${(props) =>
     ({
-      image1: `background-image: url(${headerPhoto});`,
-      image2: `background-image: url(${headerAboutBackground});`,
+      image1: `background-image: url(${headerPhoto});
+      background-position: 70%;`,
+      image2: `background-image: url(${headerAboutBackground});
+      background-position: 40%;`,
     }[props.backgroundImage])}
 
-  background-position: 70%;
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;

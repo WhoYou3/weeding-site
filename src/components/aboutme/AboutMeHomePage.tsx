@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import * as P from "./parts"
 import { ButtonSecondary } from "../../UI/UI"
 
-const AboutMe: React.FC = () => {
+const AboutMeHomePage: React.FC = () => {
   const animateElement = useRef<HTMLDivElement>(null)
 
   const [isVisible, setIsVisible] = useState<boolean>(false)
@@ -15,6 +15,8 @@ const AboutMe: React.FC = () => {
         const elementTop = animateElement.current.getBoundingClientRect().top
         const elementHeight = animateElement.current.offsetHeight
         const windowHeight = window.innerHeight
+
+        console.log(elementHeight)
         if (elementTop + elementHeight < windowHeight) {
           setIsVisible(true)
         }
@@ -56,11 +58,11 @@ const AboutMe: React.FC = () => {
           realizacji.
         </P.Paragraph>
         <Link to="/">
-          <ButtonSecondary>Więcej o mnie</ButtonSecondary>
+          <ButtonSecondary showing={true}>Więcej o mnie</ButtonSecondary>
         </Link>
       </P.Container>
     </P.Wrapper>
   )
 }
 
-export default AboutMe
+export default AboutMeHomePage

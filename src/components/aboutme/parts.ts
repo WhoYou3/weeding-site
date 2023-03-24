@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components"
 import { colors, fonts } from "../../globalStyles"
 
 interface ContainerProps {
-  animate: boolean
+  animate?: boolean
 }
 
 const fadeIn = keyframes`
@@ -69,7 +69,7 @@ export const Container = styled.div<ContainerProps>`
   align-items: center;
   padding: 1rem 2rem 2rem 2rem;
 
-  height: fit-content;
+  border: 1px red solid;
   transform: ${({ animate }) =>
     animate ? "translateX(0)" : "translateX(-150%)"};
   transition: 0.5s ease-in;
