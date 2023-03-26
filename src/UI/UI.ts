@@ -48,6 +48,7 @@ export const TextWrapper = styled.div<props>`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   margin: ${(props) => (props.margin ? "2rem" : null)};
   h3 {
     font-family: ${fonts.PLAYFAIR};
@@ -64,5 +65,6 @@ export const TextWrapper = styled.div<props>`
   p {
     font-family: ${fonts.POPPINS};
     text-align: start;
+    font-size: 14px;
   }
 `

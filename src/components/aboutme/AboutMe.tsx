@@ -3,7 +3,15 @@ import { StaticImage } from "gatsby-plugin-image"
 import { TextWrapper } from "../../UI/UI"
 import * as P from "./parts"
 
-const AboutMe: React.FC = () => {
+interface AboutMeProps {
+  sentence?: string
+  paragraph?: string
+  span?: string
+  photo1?: string
+  scalePhoto?: boolean
+}
+
+const AboutMe: React.FC<AboutMeProps> = (props) => {
   const animateElement = useRef<HTMLDivElement>(null)
 
   const [isVisible, setIsVisible] = useState<boolean>(false)
@@ -38,38 +46,24 @@ const AboutMe: React.FC = () => {
           zrealizowany perfekcyjnie.
         </P.Sentence>
       </P.Container>
-      <P.ImageContainer animate={isVisible}>
-        <StaticImage
-          placeholder="blurred"
-          src="../../assets/image/AnnaPortrait.jpg"
-          alt="portrait"
-        />
+      <P.ImageContainer scalePhoto={props.scalePhoto} animate={isVisible}>
+        {props.photo1 ? (
+          <StaticImage
+            placeholder="blurred"
+            src="../../assets/image/AnnaPortrait.jpg"
+            alt="portrait"
+          />
+        ) : (
+          <StaticImage
+            placeholder="blurred"
+            src="../../assets/image/portrait.jpg"
+            alt="portrait"
+          />
+        )}
       </P.ImageContainer>
       <P.Container animate={isVisible}>
         <P.Paragraph>
-          <span
-            style={{
-              display: "block",
-              textAlign: "center",
-              fontWeight: "bold",
-              fontSize: "1.7rem",
-              marginBottom: "1rem",
-            }}
-          >
-            Anna Kopta - Irzyk
-          </span>{" "}
-          - założycielka Kuźni Marzeń. Jestem certyfikowanym wedding plannerem.
-          Uwielbiam oragnizować wydarzenia i obserwować jak cały projekt nabiera
-          kształtów. W każdym staram się stworzyć coś wyjątkowego pasującego do
-          danej pary. Zawsze staram się łączyć nowoczesne rozwiązania z
-          niestandardowymi, ale eleganckimi elementami. Moim przepisem na sukces
-          jest dbałość o szczegóły i wsłuchanie się w oczekiwania narzeczonych.
-          Kuźnia Marzeń została założona w 2019 roku. Założenie agencji ślubnej
-          to spełnienie moich marzeń. Cel dla mnie jest jeden stworzyć
-          wspaniałe, eleganckie i luksusowe przyjęcie, które jest spełnieniem
-          Waszych oczekiwań. Uważam, że każda Para jest wyjątkowa i nie ma dwóch
-          identycznych wydarzeń, dlatego do każdego ślubu podchodzę
-          indywidualnie i szukam wyjątkowych i niepowtarzalnych rozwiązań.
+          <span>{props.span}</span> {props.paragraph}
         </P.Paragraph>
       </P.Container>
     </P.Wrapper>

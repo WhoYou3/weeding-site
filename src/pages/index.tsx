@@ -7,8 +7,9 @@ import {
   Workship,
   Quote,
   Blog,
-  AboutMeHomePage,
+  AboutMe,
 } from "../components"
+import { colors } from "../globalStyles"
 
 export const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
@@ -21,8 +22,7 @@ html {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    
-
+    background: #FFF0F5;
     width: 100%;
     
     scroll-behavior: smooth;
@@ -41,6 +41,9 @@ html {
 
 `
 
+const paragraph =
+  'Witaj! Nazywam się Anna Kopta-Irzyk i jestem założycielką firmy "Kuźnia Marzeń". Od zawsze marzyłam o tym, aby pomagać parom młodym worganizacji wymarzonych ślubów i uroczystości. Dzięki mojej pasji,kreatywności i zaangażowaniu, postanowiłam założyć firmę, któraoferuje kompleksowe usługi w planowaniu i organizacji wyjątkowychwydarzeń. W mojej pracy stawiam na indywidualne podejście do każdejpary, aby zrozumieć ich potrzeby i marzenia oraz pomóc im w ichrealizacji.'
+
 const Home: React.FC = () => {
   return (
     <div>
@@ -53,7 +56,12 @@ const Home: React.FC = () => {
           show={true}
           backgroundImage="image1"
         />
-        <AboutMeHomePage />
+        <AboutMe
+          sentence="Profesjonalna organizacja ślubów i imprez - twój wymarzony dzień
+          zrealizowany perfekcyjnie."
+          paragraph={paragraph}
+          scalePhoto={true}
+        />
         <Workship />
         <ParalaxPhoto />
         <Quote />

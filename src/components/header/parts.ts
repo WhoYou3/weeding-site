@@ -49,7 +49,7 @@ export const Title = styled.h1`
   text-align: center;
   font-family: ${fonts.GREATVIBES}, sans-serif;
   color: ${colors.primary};
-  font-size: 36px;
+  font-size: 28px;
   letter-spacing: 3px;
 
   @media screen and (min-width: 820px) {
@@ -65,7 +65,7 @@ export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 5rem;
+  padding-bottom: 1.5rem;
 
   @media screen and (min-width: 1400px) {
     padding-left: 300px;
