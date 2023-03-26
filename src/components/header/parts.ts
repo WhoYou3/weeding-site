@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import headerPhoto from "../../assets/image/header-photo.jpg"
-import headerAboutBackground from "../../assets/image/AboutHeaderBackground.jpg"
+import headerAboutBackground from "../../assets/image/AboutHeaderBackground-min.jpg"
 
 import { colors, fonts } from "../../globalStyles"
 
