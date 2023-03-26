@@ -8,6 +8,7 @@ interface HeaderProps {
   sentence3?: string
   show?: boolean
   backgroundImage?: string
+  textPlace?: string
 }
 
 const Header: React.FC<HeaderProps> = ({
@@ -16,11 +17,11 @@ const Header: React.FC<HeaderProps> = ({
   sentence3,
   show,
   backgroundImage,
+  textPlace,
 }) => {
-  console.log(backgroundImage)
   return (
     <P.Header backgroundImage={backgroundImage}>
-      <P.ContentWrapper>
+      <P.ContentWrapper textPlace={textPlace}>
         <P.Title>
           {sentence1} <br /> {sentence2} <br /> {sentence3}
         </P.Title>

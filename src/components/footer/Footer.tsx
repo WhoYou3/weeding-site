@@ -1,8 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { AiFillFacebook } from "react-icons/Ai"
-import { BsInstagram, BsTiktok } from "react-icons/Bs"
+import { AiFillFacebook } from "react-icons/ai"
+import { BsInstagram, BsTiktok } from "react-icons/bs"
 import * as P from "./parts"
 
 const Footer = () => {
@@ -10,7 +10,7 @@ const Footer = () => {
     <P.Footer>
       <P.Logo>
         <StaticImage
-          src="../../assets/image/logo.png"
+          src="../../assets/image/logo1.png"
           alt="logo"
           layout="fullWidth"
         />
