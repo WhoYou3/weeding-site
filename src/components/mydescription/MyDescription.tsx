@@ -49,6 +49,9 @@ const MyDescription = () => {
             marzysz, żeby był. Skontaktuj się ze mną i pozwól mi pomóc Ci w
             zaplanowaniu wymarzonego wesela.
           </p>
+          <ButtonSecondary showing={true}>
+            Skontaktuj się ze mną
+          </ButtonSecondary>
         </P.ParalaxText>
       </P.ParalaxDisplay>
 

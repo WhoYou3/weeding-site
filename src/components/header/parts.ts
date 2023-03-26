@@ -6,6 +6,7 @@ import { colors, fonts } from "../../globalStyles"
 
 interface HeaderProps {
   backgroundImage?: string
+  textPlace?: string
 }
 
 export const Header = styled.header<HeaderProps>`
@@ -60,7 +61,7 @@ export const Title = styled.h1`
   }
 `
 
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div<HeaderProps>`
   z-index: 5;
   display: flex;
   flex-direction: column;
@@ -68,7 +69,7 @@ export const ContentWrapper = styled.div`
   padding-bottom: 1.5rem;
 
   @media screen and (min-width: 1400px) {
-    padding-left: 300px;
+    padding-left: ${({ textPlace }) => textPlace};
     padding-top: 200px;
   }
 `

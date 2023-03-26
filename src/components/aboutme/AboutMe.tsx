@@ -15,7 +15,6 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
   const animateElement = useRef<HTMLDivElement>(null)
 
   const [isVisible, setIsVisible] = useState<boolean>(false)
-  console.log(isVisible)
 
   useEffect(() => {
     const handleScroll = (): void => {
@@ -23,7 +22,6 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
         const elementTop = animateElement.current.getBoundingClientRect().top
         const elementHeight = animateElement.current.offsetHeight
         const windowHeight = window.innerHeight
-        console.log(elementHeight)
 
         if (elementTop + elementHeight < windowHeight) {
           setIsVisible(true)

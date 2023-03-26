@@ -8,6 +8,7 @@ import {
   Quote,
   Blog,
   AboutMe,
+  References,
 } from "../components"
 import { colors } from "../globalStyles"
 
@@ -55,6 +56,7 @@ const Home: React.FC = () => {
           sentence3="Twój niezapomniany ślub"
           show={true}
           backgroundImage="image1"
+          textPlace="300px"
         />
         <AboutMe
           sentence="Profesjonalna organizacja ślubów i imprez - twój wymarzony dzień
@@ -66,6 +68,7 @@ const Home: React.FC = () => {
         <ParalaxPhoto />
         <Quote />
         <Blog />
+        <References />
       </Layout>
     </div>
   )

@@ -7,6 +7,7 @@ export const Footer = styled.footer`
   background: rgb(0, 0, 0);
   display: flex;
   flex-direction: column;
+  margin-top: 1rem;
 
   @media screen and (min-width: 820px) {
     flex-direction: row;

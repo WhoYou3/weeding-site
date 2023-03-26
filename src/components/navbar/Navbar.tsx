@@ -49,7 +49,7 @@ const Navbar: React.FC = () => {
       <P.NavContainer isScrolled={isScrolled}>
         <StaticImage
           placeholder="blurred"
-          src="../../assets/image/logo.png"
+          src="../../assets/image/logo1.png"
           alt="logo"
         />
 
