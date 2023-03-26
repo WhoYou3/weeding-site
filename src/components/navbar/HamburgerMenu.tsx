@@ -27,7 +27,7 @@ const NavbarMenu: React.FC<HamburgerMenuProps> = ({
           onClick={showHambugerMenu}
         />
         <P.HamburgerMenu>
-          <StaticImage src="../../assets/image/logo.png" alt="logo" />
+          <StaticImage src="../../assets/image/logo1.png" alt="logo" />
 
           <Link to="/">Strona Główna</Link>
           <Link to="/omnie">O mnie</Link>

@@ -10,7 +10,7 @@ const Footer = () => {
     <P.Footer>
       <P.Logo>
         <StaticImage
-          src="../../assets/image/logo.png"
+          src="../../assets/image/logo1.png"
           alt="logo"
           layout="fullWidth"
         />

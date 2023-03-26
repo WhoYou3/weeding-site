@@ -34,6 +34,8 @@ export const ButtonSecondary = styled(ButtonPrimary)<props>`
   background-color: white;
   margin-top: ${(props) => props.space || ""};
   margin-bottom: ${(props) => props.space || ""};
+  margin-left: auto;
+  margin-right: auto;
 `
 
 export const TextWrapper = styled.div<props>`
