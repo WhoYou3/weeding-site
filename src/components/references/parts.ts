@@ -7,7 +7,7 @@ export const ReferencesWrapper = styled.section`
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 1rem;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 
   @media screen and (min-width: 820px) {
     flex-wrap: wrap;

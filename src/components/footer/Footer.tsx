@@ -36,8 +36,7 @@ const Footer = () => {
         </P.LinksContainer>
         <P.ContactContainer>
           <p>Anna Kopta-Irzyk</p>
-          <p>Myślenice 99-992</p>
-          <p>ul. Solidarności chuj wie ile</p>
+          <p>666-666-666</p>
 
           <p>TwójAdresEmail.gmail.com</p>
         </P.ContactContainer>

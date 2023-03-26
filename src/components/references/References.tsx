@@ -13,9 +13,10 @@ interface Props {
       id: string
     }[]
   }
+  showing?: boolean
 }
 
-const References: React.FC<Props> = () => {
+const References: React.FC<Props> = ({ showing }) => {
   const data = useStaticQuery<Props>(query)
   const [displayedReferences, setDisplayedReferences] = useState<number>(3)
   const nodes = data.allDatoCmsReferencje.nodes.slice(0, displayedReferences)
@@ -24,8 +25,6 @@ const References: React.FC<Props> = () => {
   const loadMoreReference = () => {
     setDisplayedReferences((prev) => prev + 3)
   }
-  console.log(displayedReferences)
-  console.log(nodesLength)
 
   return (
     <>
@@ -41,8 +40,12 @@ const References: React.FC<Props> = () => {
           </P.ReferenceWrapper>
         ))}
       </P.ReferencesWrapper>
-      {displayedReferences < nodesLength ? (
-        <ButtonSecondary onClick={loadMoreReference} showing={true}>
+      {showing && displayedReferences < nodesLength ? (
+        <ButtonSecondary
+          style={{ marginTop: "2rem", marginBottom: "2rem" }}
+          onClick={loadMoreReference}
+          showing={true}
+        >
           Zobacz więcej
         </ButtonSecondary>
       ) : null}
