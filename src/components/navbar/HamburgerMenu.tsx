@@ -6,7 +6,7 @@ import {
   AiOutlineTwitter,
   AiFillInstagram,
   AiOutlineClose,
-} from "react-icons/Ai"
+} from "react-icons/ai"
 import * as P from "./parts"
 
 interface HamburgerMenuProps {
