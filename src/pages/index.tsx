@@ -68,7 +68,7 @@ const Home: React.FC = () => {
         <ParalaxPhoto />
         <Quote />
         <Blog />
-        <References />
+        <References showing={false} />
       </Layout>
     </div>
   )
