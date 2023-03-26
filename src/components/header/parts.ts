@@ -1,12 +1,24 @@
 import styled from "styled-components"
 import headerPhoto from "../../assets/image/header-photo.jpg"
+import headerAboutBackground from "../../assets/image/AboutHeaderBackground.jpg"
+
 import { colors, fonts } from "../../globalStyles"
 
-export const Header = styled.header`
+interface HeaderProps {
+  backgroundImage?: string
+}
+
+export const Header = styled.header<HeaderProps>`
   height: 100dvh;
 
-  background-image: url(${headerPhoto});
-  background-position: 70%;
+  ${(props) =>
+    ({
+      image1: `background-image: url(${headerPhoto});
+      background-position: 70%;`,
+      image2: `background-image: url(${headerAboutBackground});
+      background-position: 40%;`,
+    }[props.backgroundImage])}
+
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
@@ -37,7 +49,8 @@ export const Title = styled.h1`
   text-align: center;
   font-family: ${fonts.GREATVIBES}, sans-serif;
   color: ${colors.primary};
-  font-size: 36px;
+  font-size: 28px;
+  letter-spacing: 3px;
 
   @media screen and (min-width: 820px) {
     font-size: 40px;
@@ -52,7 +65,7 @@ export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 5rem;
+  padding-bottom: 1.5rem;
 
   @media screen and (min-width: 1400px) {
     padding-left: 300px;

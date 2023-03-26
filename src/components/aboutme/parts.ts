@@ -2,7 +2,8 @@ import styled, { keyframes } from "styled-components"
 import { colors, fonts } from "../../globalStyles"
 
 interface ContainerProps {
-  animate: boolean
+  animate?: boolean
+  scalePhoto?: boolean
 }
 
 const fadeIn = keyframes`
@@ -29,7 +30,7 @@ export const ImageContainer = styled.div<ContainerProps>`
   opacity: 0;
   animation: ${({ animate }) => animate && fadeIn} 1s ease-in-out forwards;
   img {
-    scale: 1.2;
+    scale: ${({ scalePhoto }) => (scalePhoto ? "1.5" : "1")};
   }
 
   @media screen and (min-width: 900px) {
@@ -40,8 +41,8 @@ export const ImageContainer = styled.div<ContainerProps>`
     top: 50px;
 
     img {
-      scale: 1;
-      height: 600px;
+      scale: ${({ scalePhoto }) => (scalePhoto ? "1.5" : "1")};
+      height: 500px;
     }
   }
 
@@ -68,8 +69,6 @@ export const Container = styled.div<ContainerProps>`
   flex-direction: column;
   align-items: center;
   padding: 1rem 2rem 2rem 2rem;
-
-  height: fit-content;
   transform: ${({ animate }) =>
     animate ? "translateX(0)" : "translateX(-150%)"};
   transition: 0.5s ease-in;
@@ -83,13 +82,34 @@ export const Sentence = styled.h2`
   font-family: ${fonts.PLAYFAIR}, "sans-serif";
   font-weight: 400;
   text-transform: uppercase;
-  line-height: 2.5rem;
-  font-size: 1.6 rem;
+  line-height: 2rem;
+  font-size: 1.3rem;
+
   text-align: center;
+
+  @media screen and (min-width: 820px) {
+    font-size: 20px;
+    line-height: 2.3rem;
+  }
 `
 
 export const Paragraph = styled.p`
   font-family: ${fonts.POPPINS}, sans-serif;
 
-  font-size: 18px;
+  font-size: 14px;
+
+  span {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  @media screen and (min-width: 820px) {
+    font-size: 16px;
+    span {
+      font-size: 1.4rem;
+    }
+  }
 `

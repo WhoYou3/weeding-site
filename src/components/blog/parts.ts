@@ -99,6 +99,7 @@ export const ImageGroup = styled.div`
   height: 50vmin;
   width: 50vmin;
   margin: auto;
+ 
 
   @media screen and (max-width: 620px) {
     :active > :nth-child(1) {
@@ -194,7 +195,6 @@ export const Card = styled.div<testprops>`
   width: 100%;
   aspect-ratio: 6/5;
   background-color: rgba(0, 0, 0);
-  border-radius: 5px;
   background-image: ${({ blogImage1 }) =>
     blogImage1 ? `url(${blogImage01})` : null};
   background-image: ${({ blogImage2 }) =>
@@ -204,4 +204,10 @@ export const Card = styled.div<testprops>`
   background-image: ${({ blogImage4 }) =>
     blogImage4 ? `url(${blogImage04})` : null};
   background-size: cover;
+  background-position: 0 -10px;
+  background-repeat: no-repeat;
+
+  @media screen and (min-width: 820px) {
+    background-position: 0 -30px;
+  }
 `

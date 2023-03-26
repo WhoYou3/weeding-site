@@ -1,13 +1,21 @@
-import React, { useRef, useEffect, useState } from "react"
-import { Link } from "gatsby"
+import React, { useEffect, useState, useRef } from "react"
 import { StaticImage } from "gatsby-plugin-image"
+import { TextWrapper } from "../../UI/UI"
 import * as P from "./parts"
-import { ButtonSecondary } from "../../UI/UI"
 
-const AboutMe: React.FC = () => {
+interface AboutMeProps {
+  sentence?: string
+  paragraph?: string
+  span?: string
+  photo1?: string
+  scalePhoto?: boolean
+}
+
+const AboutMe: React.FC<AboutMeProps> = (props) => {
   const animateElement = useRef<HTMLDivElement>(null)
 
   const [isVisible, setIsVisible] = useState<boolean>(false)
+  console.log(isVisible)
 
   useEffect(() => {
     const handleScroll = (): void => {
@@ -15,6 +23,8 @@ const AboutMe: React.FC = () => {
         const elementTop = animateElement.current.getBoundingClientRect().top
         const elementHeight = animateElement.current.offsetHeight
         const windowHeight = window.innerHeight
+        console.log(elementHeight)
+
         if (elementTop + elementHeight < windowHeight) {
           setIsVisible(true)
         }
@@ -28,7 +38,6 @@ const AboutMe: React.FC = () => {
         window.removeEventListener("scroll", handleScroll)
     }
   }, [])
-
   return (
     <P.Wrapper>
       <P.Container animate={isVisible} ref={animateElement}>
@@ -37,27 +46,25 @@ const AboutMe: React.FC = () => {
           zrealizowany perfekcyjnie.
         </P.Sentence>
       </P.Container>
-      <P.ImageContainer animate={isVisible}>
-        <StaticImage
-          placeholder="blurred"
-          src="../../assets/image/portrait.jpg"
-          alt="portrait"
-        />
+      <P.ImageContainer scalePhoto={props.scalePhoto} animate={isVisible}>
+        {props.photo1 ? (
+          <StaticImage
+            placeholder="blurred"
+            src="../../assets/image/AnnaPortrait.jpg"
+            alt="portrait"
+          />
+        ) : (
+          <StaticImage
+            placeholder="blurred"
+            src="../../assets/image/portrait.jpg"
+            alt="portrait"
+          />
+        )}
       </P.ImageContainer>
       <P.Container animate={isVisible}>
         <P.Paragraph>
-          "Witaj! Nazywam się Anna Kopta-Irzyk i jestem założycielką firmy
-          "Kuźnia Marzeń". Od zawsze marzyłam o tym, aby pomagać parom młodym w
-          organizacji wymarzonych ślubów i uroczystości. Dzięki mojej pasji,
-          kreatywności i zaangażowaniu, postanowiłam założyć firmę, która
-          oferuje kompleksowe usługi w planowaniu i organizacji wyjątkowych
-          wydarzeń. W mojej pracy stawiam na indywidualne podejście do każdej
-          pary, aby zrozumieć ich potrzeby i marzenia oraz pomóc im w ich
-          realizacji.
+          <span>{props.span}</span> {props.paragraph}
         </P.Paragraph>
-        <Link to="/">
-          <ButtonSecondary>Więcej o mnie</ButtonSecondary>
-        </Link>
       </P.Container>
     </P.Wrapper>
   )

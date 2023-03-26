@@ -1,29 +1,17 @@
 import styled from "styled-components"
 import { colors, fonts } from "../../globalStyles"
 
-interface propsFrameWrapper {
-  leftFrame?: boolean
-  rightFrame?: boolean
-}
-export const Wrapper = styled.section`
-  background-color: ${colors.primary};
-  height: 200px;
-  width: 100%;
-  margin: 2rem 0;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-`
-
-export const FrameWrapper = styled.div<propsFrameWrapper>`
-  position: absolute;
-  height: 100%;
-  right: ${(props) => (props.rightFrame ? "0" : null)};
-  left: ${(props) => (props.leftFrame ? "0" : null)};
-  transform: ${(props) => (props.leftFrame ? "rotate(180deg)" : null)};
-`
+// export const Wrapper = styled.section`
+//   background-color: ${colors.primary};
+//   height: 200px;
+//   width: 100%;
+//   margin: 2rem 0;
+//   position: relative;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+// `
 
 export const Title = styled.h3`
   font-family: ${fonts.POPPINS};
