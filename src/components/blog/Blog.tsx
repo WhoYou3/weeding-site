@@ -43,9 +43,6 @@ const Blog: React.FC = () => {
             <P.CardWrapper>
               <P.Card blogImage4={true}></P.Card>
             </P.CardWrapper>
-            {/* <P.Card></P.Card>
-            <P.Card></P.Card>
-            <P.Card></P.Card> */}
           </P.ImageGroup>
         </P.ImagesContainer>
       </P.ContentContainer>
