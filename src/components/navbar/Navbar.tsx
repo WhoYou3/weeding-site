@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { TbMenu2 } from "react-icons/tb"
+import { TbMenu2 } from "react-icons/Tb"
 import HamburgerMenu from "./HamburgerMenu"
 
 import * as P from "../navbar/parts"
