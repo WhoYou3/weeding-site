@@ -42,7 +42,6 @@ export const LinksContainer = styled.ul`
   flex-direction: column;
   justify-content: space-between;
   padding: 0;
-  gap: 10px;
 
   @media screen and (min-width: 820px) {
     border-right: 1px rgba(255, 255, 255, 0.4) solid;
