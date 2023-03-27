@@ -12,11 +12,7 @@ export const Wrapper = styled.section<PropsWrapper>`
   margin-bottom: 2rem;
   justify-content: center;
   transform: ${({ animate, reverse }) =>
-    animate
-      ? "translateX(0)"
-      : reverse
-      ? "translateX(150%)"
-      : "translateX(-150%)"};
+    animate ? "translateX(0)" : "translateX(-150%)"};
   transition: 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   @media screen and (min-width: 1024px) {
