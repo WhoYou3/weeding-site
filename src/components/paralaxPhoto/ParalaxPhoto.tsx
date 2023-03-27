@@ -22,7 +22,9 @@ const Photo: React.FC = () => {
   return (
     <P.ParalaxContainer ref={parallaxRef}>
       <P.ParalaxContent>
-        <ButtonSecondary scaleReducer="0.6">Zobacz galerie</ButtonSecondary>
+        <ButtonSecondary showing={true} scaleReducer="0.6">
+          Zobacz galerie
+        </ButtonSecondary>
       </P.ParalaxContent>
     </P.ParalaxContainer>
   )

@@ -32,7 +32,7 @@ const Omnie = () => {
         />
         <MyDescription />
         <Workship />
-        <References />
+        <References showing={true} />
       </Layout>
     </div>
   )

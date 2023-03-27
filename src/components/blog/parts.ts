@@ -19,7 +19,7 @@ export const Container = styled.section`
   width: 100%;
 `
 export const Wrapper = styled.div`
-  height: 100vh;
+  height: 100svh;
   width: 100%;
   background-image: url(${weddingDres});
   background-size: cover;

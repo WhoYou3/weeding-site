@@ -27,6 +27,7 @@ html {
     width: 100%;
     
     scroll-behavior: smooth;
+    overflow-x: hidden;
     
     
   }
@@ -68,7 +69,7 @@ const Home: React.FC = () => {
         <ParalaxPhoto />
         <Quote />
         <Blog />
-        <References />
+        <References showing={false} />
       </Layout>
     </div>
   )

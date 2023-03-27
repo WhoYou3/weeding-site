@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import headerPhoto from "../../assets/image/header-photo.jpg"
 import headerAboutBackground from "../../assets/image/AboutHeaderBackground-min.jpg"
+import headerOffertPhoto from "../../assets/image/OfertHeader.jpg"
 
 import { colors, fonts } from "../../globalStyles"
 
@@ -10,7 +11,7 @@ interface HeaderProps {
 }
 
 export const Header = styled.header<HeaderProps>`
-  height: 100dvh;
+  height: 100svh;
 
   ${(props) =>
     ({
@@ -18,6 +19,8 @@ export const Header = styled.header<HeaderProps>`
       background-position: 70%;`,
       image2: `background-image: url(${headerAboutBackground});
       background-position: 40%;`,
+      image3: `background-image: url(${headerOffertPhoto});
+      background-position: 60%;`,
     }[props.backgroundImage])}
 
   background-size: cover;
