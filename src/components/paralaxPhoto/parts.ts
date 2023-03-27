@@ -2,7 +2,7 @@ import styled from "styled-components"
 import weddingDancePhoto from "../../assets/image/weddingDance.jpg"
 
 export const ParalaxContainer = styled.div`
-  height: 70vh;
+  height: 70svh;
   background-image: url(${weddingDancePhoto});
   background-size: cover;
 
