@@ -71,7 +71,7 @@ export const Container = styled.div<ContainerProps>`
   padding: 1rem 2rem 2rem 2rem;
   transform: ${({ animate }) =>
     animate ? "translateX(0)" : "translateX(-150%)"};
-  transition: 0.5s ease-in;
+  transition: 1s ease-out;
 
   @media screen and (min-width: 900px) {
     width: 50%;

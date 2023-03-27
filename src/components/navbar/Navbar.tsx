@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
         <P.LinksContainer>
           <Link to="/">Strona Główna </Link>
           <Link to="/omnie">O mnie</Link>
-          <Link to="/">Oferta</Link>
+          <Link to="/oferta">Oferta</Link>
           <Link to="/">Blog</Link>
           <Link to="/">Galeria</Link>
           <Link to="/">Kontakt</Link>
