@@ -95,7 +95,7 @@ export const LinksContainer = styled.div`
     color: ${colors.hover};
   }
 
-  @media screen and (max-width: 820px) {
+  @media screen and (max-width: 819px) {
     display: none;
   }
 `

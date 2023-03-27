@@ -11,16 +11,13 @@ export const Wrapper = styled.section<PropsWrapper>`
   margin-top: 2rem;
   margin-bottom: 2rem;
   justify-content: center;
-
-  @media screen and (min-width: 820px) {
-    transform: ${({ animate, reverse }) =>
-      animate
-        ? "translateX(0)"
-        : reverse
-        ? "translateX(150%)"
-        : "translateX(-150%)"};
-    transition: 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
+  transform: ${({ animate, reverse }) =>
+    animate
+      ? "translateX(0)"
+      : reverse
+      ? "translateX(150%)"
+      : "translateX(-150%)"};
+  transition: 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   @media screen and (min-width: 1024px) {
     flex-direction: ${({ reverse }) => (reverse ? "row-reverse" : "row")};
