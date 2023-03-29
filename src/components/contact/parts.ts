@@ -1,20 +1,11 @@
 import styled from "styled-components"
 import { colors } from "../../globalStyles"
 import rightBackground from "../../assets/image/contactpage-photo.jpg"
-import leftBackground from "../../assets/im"
+import leftBackground from "../../assets/image/contactpage-photo1.jpg"
 
 export const Wrapper = styled.section`
   margin-top: 100px;
   position: relative;
-
-  @media screen and (min-width: 820px) {
-    display: flex;
-    height: 100vh;
-    align-items: center;
-    justify-content: center;
-
-    border: 1px red solid;
-  }
 `
 
 export const RightImage = styled.div`
@@ -30,14 +21,15 @@ export const RightImage = styled.div`
     position: absolute;
     right: 0;
     display: block;
+    top: 20%;
   }
 
   svg {
     position: absolute;
     bottom: -25%;
-    left: -10%;
-    width: 130%;
-    height: 110%;
+    right: -25%;
+    width: 140%;
+    height: 120%;
     transform: rotate(45deg);
     z-index: -1;
   }
@@ -46,23 +38,33 @@ export const RightImage = styled.div`
 export const LeftImage = styled.div`
   display: none;
   @media screen and (min-width: 820px) {
-    background: url(${rightBackground});
+    background: url(${leftBackground});
     z-index: -3;
     height: 100%;
     width: 40%;
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 0 30%;
+    background-position: 0 -10%;
     position: absolute;
     left: 0;
     display: block;
+
+    svg {
+      position: absolute;
+      bottom: -25%;
+      left: -25%;
+      width: 140%;
+      height: 120%;
+      transform: rotate(-45deg);
+      z-index: -1;
+    }
   }
 `
 
 export const TextWrapper = styled.div`
   @media screen and (min-width: 820px) {
-    width: 300px;
-    display: none;
+    width: 70%;
+    margin: auto;
   }
 `
 
@@ -72,7 +74,6 @@ export const Break = styled.div`
   margin: auto;
 
   @media screen and (min-width: 820px) {
-    display: none;
   }
 `
 
@@ -135,7 +136,7 @@ export const Form = styled.form`
 
     svg {
       transform: rotate(45deg);
-      color: #e74c3c;
+      color: #f7cac9;
     }
   }
   div:nth-child(2) {
@@ -144,9 +145,8 @@ export const Form = styled.form`
     top: 50%;
     height: 120px;
     transform: translateY(-50%);
-
     svg {
-      color: #e74c3c;
+      color: #f7cac9;
     }
   }
   div:nth-child(3) {
@@ -159,7 +159,7 @@ export const Form = styled.form`
     height: 25px;
 
     svg {
-      color: #e74c3c;
+      color: #f7cac9;
     }
   }
 `
@@ -178,6 +178,9 @@ export const Contact = styled.div`
     width: 60%;
 
     padding-left: 1rem;
+    @media screen and (min-width: 820px) {
+      justify-content: center;
+    }
 
     svg {
       margin-right: 20px;
@@ -190,6 +193,6 @@ export const Contact = styled.div`
   }
 
   @media screen and (min-width: 820px) {
-    display: none;
+    /* display: none; */
   }
 `

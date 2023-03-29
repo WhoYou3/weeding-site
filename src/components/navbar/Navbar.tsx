@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
           <Link to="/oferta">Oferta</Link>
           <Link to="/">Blog</Link>
           <Link to="/">Galeria</Link>
-          <Link to="/">Kontakt</Link>
+          <Link to="/kontakt">Kontakt</Link>
         </P.LinksContainer>
         {!isOpenHamburgerMenu ? (
           <TbMenu2 onClick={showHambugerMenu} size={25} />
