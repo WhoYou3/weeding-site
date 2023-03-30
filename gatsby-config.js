@@ -43,6 +43,12 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-source-instagram-all`,
+      options: {
+        access_token: process.env.INSTAGRAM_ACCESS_TOKEN,
+      },
+    },
 
     "gatsby-plugin-sharp",
     "gatsby-plugin-image",

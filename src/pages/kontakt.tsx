@@ -1,12 +1,13 @@
 import React from "react"
 import { GlobalStyle } from "."
-import { Contact, Layout } from "../components"
+import { Contact, Layout, Instagram } from "../components"
 
-const Kontakt = () => {
+const Kontakt: React.FC = () => {
   return (
     <Layout>
       <GlobalStyle />
       <Contact />
+      <Instagram />
     </Layout>
   )
 }
