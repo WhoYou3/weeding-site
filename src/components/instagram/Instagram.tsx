@@ -26,7 +26,63 @@ interface Props {
 }
 
 const Instagram: React.FC = () => {
-  const ref = useRef(null)
+  const trackRef = useRef<HTMLDivElement>(null)
+  const [mouseDownAt, setMouseDownAt] = useState<number>(0)
+  const [prevPercentage, setPrevPercentage] = useState<string>("0")
+  console.log("testuje")
+
+  const handleOnDown = (e: React.MouseEvent): void => {
+    setMouseDownAt(e.clientX)
+  }
+
+  const handleOnUp = (): void => {
+    setMouseDownAt(0)
+    trackRef.current.setAttribute("data-prev-percentage", prevPercentage)
+  }
+
+  const handleOnMove = (e: React.MouseEvent | React.TouchEvent): void => {
+    if (mouseDownAt === 0) return
+
+    const clientX = "clientX" in e ? e.clientX : e.touches[0].clientX
+
+    const mouseDelta = mouseDownAt - clientX
+
+    const maxDelta = trackRef.current.offsetWidth
+
+    const percentage = (mouseDelta / maxDelta) * -100
+
+    const nextPercentageUnconstrained = parseFloat(prevPercentage) + percentage
+    const nextPercentage = Math.max(
+      Math.min(nextPercentageUnconstrained, 0),
+      -100
+    )
+
+    trackRef.current.setAttribute("data-percentage", nextPercentage.toString())
+    setPrevPercentage(nextPercentage.toString())
+    trackRef.current.animate(
+      { transform: `translateX(${nextPercentage}%)` },
+      { duration: 1200, fill: "forwards" }
+    )
+
+    const images = trackRef.current.getElementsByClassName("image")
+
+    for (let i = 0; i < images.length; i++) {
+      const image = images[i]
+
+      const img = (image as HTMLElement).querySelector("img")
+      const currentImage = img
+        ?.closest(".gatsby-image-wrapper")
+        ?.querySelector("img")
+
+      currentImage.animate(
+        {
+          objectPosition: `${100 + nextPercentage}% center`,
+        },
+        { duration: 1200, fill: "forwards" }
+      )
+    }
+  }
+
   const data: InstagramQuery = useStaticQuery(graphql`
     query {
       allInstagramContent(limit: 10) {
@@ -44,46 +100,37 @@ const Instagram: React.FC = () => {
       }
     }
   `)
-  const [mouseDownAt, setMouseDownAt] = useState<number>(0)
-
-  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-    setMouseDownAt(e.clientX)
-  }
-  window.onmousemove = (e: any) => {
-    if (mouseDownAt === 0) {
-      return
-    }
-    const mouseDelta = mouseDownAt - e.clientX
-    const maxDelta = window.innerWidth / 2
-    const perctange = (mouseDelta / maxDelta) * -100
-    const nextPerctange =
-      (ref.current.style.transform = `translateX(${perctange}px)`)
-  }
-  console.log(mouseDownAt)
-  // window.onmouseup = (e) => {
-  //   setMouseDownAt(0)
-  // }
-  console.log(mouseDownAt)
 
   return (
     <>
-      <P.Wrapper data-mouse-down-at="0" data-prev-perctange="0" ref={ref}>
-        {data.allInstagramContent.edges.map(({ node }) => (
-          <div
-            onDragStart={(e) => e.preventDefault()}
-            draggable={false}
-            key={node.id}
-          >
-            <a href={node.permalink}>
-              <GatsbyImage
-                image={node.localImage.childImageSharp.gatsbyImageData}
-                alt="Instagram post"
-              />
-            </a>
-          </div>
-        ))}
-        <P.Scroll id="image-track" onMouseDown={handleMouseDown}></P.Scroll>
-      </P.Wrapper>
+      <P.Content>
+        <P.Wrapper ref={trackRef}>
+          {data.allInstagramContent.edges.map(({ node }) => (
+            <P.ImageContainer
+              onDragStart={(e) => e.preventDefault()}
+              draggable={false}
+              key={node.id}
+            >
+              <a href={node.permalink}>
+                <GatsbyImage
+                  className="image"
+                  image={node.localImage.childImageSharp.gatsbyImageData}
+                  alt="Instagram post"
+                />
+              </a>
+            </P.ImageContainer>
+          ))}
+        </P.Wrapper>
+        <P.Scroll
+          id="image-track"
+          onMouseDown={handleOnDown}
+          // onTouchStart={handleOnDown}
+          onMouseUp={handleOnUp}
+          onTouchEnd={handleOnUp}
+          onMouseMove={handleOnMove}
+          onTouchMove={handleOnMove}
+        ></P.Scroll>
+      </P.Content>
     </>
   )
 }
