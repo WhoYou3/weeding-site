@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import * as P from "./parts"
+import { ButtonSecondary } from "../../UI/UI"
 
 interface InstagramNode {
   id: string
@@ -11,6 +12,7 @@ interface InstagramNode {
     }
   }
   permalink: string
+  url: string
 }
 
 interface InstagramQuery {
@@ -25,11 +27,13 @@ interface Props {
   data: InstagramQuery
 }
 
-const Instagram: React.FC = () => {
+const Instagram: React.FC<Props> = () => {
   const trackRef = useRef<HTMLDivElement>(null)
   const [mouseDownAt, setMouseDownAt] = useState<number>(0)
   const [prevPercentage, setPrevPercentage] = useState<string>("0")
-  console.log("testuje")
+  const [tests, setTest] = useState<number>(0)
+
+  console.log("test " + tests)
 
   const handleOnDown = (e: React.MouseEvent): void => {
     setMouseDownAt(e.clientX)
@@ -40,6 +44,35 @@ const Instagram: React.FC = () => {
     trackRef.current.setAttribute("data-prev-percentage", prevPercentage)
   }
 
+  const animation = (value) => {
+    trackRef.current.animate(
+      { transform: `translateX(${value}%)` },
+      { duration: 1200, fill: "forwards" }
+    )
+    const images = trackRef.current.getElementsByClassName("image")
+    for (let i = 0; i < images.length; i++) {
+      const image = images[i]
+
+      image?.animate(
+        {
+          objectPosition: `${0 - value + 30}% center`,
+        },
+        { duration: 1200, fill: "forwards" }
+      )
+    }
+    console.log(value)
+  }
+
+  const test = () => {
+    setTest((prev) => {
+      const updatedTest = prev - 20
+      console.log(updatedTest)
+      animation(updatedTest)
+      return updatedTest
+    })
+  }
+  console.log(tests)
+
   const handleOnMove = (e: React.MouseEvent | React.TouchEvent): void => {
     if (mouseDownAt === 0) return
 
@@ -47,11 +80,13 @@ const Instagram: React.FC = () => {
 
     const mouseDelta = mouseDownAt - clientX
 
-    const maxDelta = trackRef.current.offsetWidth
+    const maxDelta = window.innerWidth / 2
 
     const percentage = (mouseDelta / maxDelta) * -100
+    console.log(percentage)
 
     const nextPercentageUnconstrained = parseFloat(prevPercentage) + percentage
+
     const nextPercentage = Math.max(
       Math.min(nextPercentageUnconstrained, 0),
       -100
@@ -60,23 +95,17 @@ const Instagram: React.FC = () => {
     trackRef.current.setAttribute("data-percentage", nextPercentage.toString())
     setPrevPercentage(nextPercentage.toString())
     trackRef.current.animate(
-      { transform: `translateX(${nextPercentage}%)` },
+      { transform: `translateX(${tests}%)` },
       { duration: 1200, fill: "forwards" }
     )
 
     const images = trackRef.current.getElementsByClassName("image")
-
     for (let i = 0; i < images.length; i++) {
       const image = images[i]
 
-      const img = (image as HTMLElement).querySelector("img")
-      const currentImage = img
-        ?.closest(".gatsby-image-wrapper")
-        ?.querySelector("img")
-
-      currentImage.animate(
+      image?.animate(
         {
-          objectPosition: `${100 + nextPercentage}% center`,
+          objectPosition: `${tests}% center`,
         },
         { duration: 1200, fill: "forwards" }
       )
@@ -84,17 +113,18 @@ const Instagram: React.FC = () => {
   }
 
   const data: InstagramQuery = useStaticQuery(graphql`
-    query {
-      allInstagramContent(limit: 10) {
+    query MyQuery {
+      allInstagramContent(limit: 12) {
         edges {
           node {
             id
+            permalink
             localImage {
               childImageSharp {
                 gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
               }
+              url
             }
-            permalink
           }
         }
       }
@@ -106,17 +136,16 @@ const Instagram: React.FC = () => {
       <P.Content>
         <P.Wrapper ref={trackRef}>
           {data.allInstagramContent.edges.map(({ node }) => (
-            <P.ImageContainer
-              onDragStart={(e) => e.preventDefault()}
-              draggable={false}
-              key={node.id}
-            >
+            <P.ImageContainer draggable={false} key={node.id}>
               <a href={node.permalink}>
-                <GatsbyImage
+                <img
                   className="image"
-                  image={node.localImage.childImageSharp.gatsbyImageData}
-                  alt="Instagram post"
-                />
+                  src={
+                    node.localImage.childImageSharp.gatsbyImageData.images
+                      .fallback.src
+                  }
+                  alt="instaphoto"
+                ></img>
               </a>
             </P.ImageContainer>
           ))}
@@ -131,6 +160,9 @@ const Instagram: React.FC = () => {
           onTouchMove={handleOnMove}
         ></P.Scroll>
       </P.Content>
+      <ButtonSecondary showing={true} onClick={test}>
+        test
+      </ButtonSecondary>
     </>
   )
 }
