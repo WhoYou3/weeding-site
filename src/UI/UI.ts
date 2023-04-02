@@ -36,6 +36,12 @@ export const ButtonSecondary = styled(ButtonPrimary)<props>`
   margin-bottom: ${(props) => props.space || ""};
   margin-left: auto;
   margin-right: auto;
+  :hover {
+    a {
+      color: ${colors.hover};
+      cursor: pointer;
+    }
+  }
 `
 
 export const TextWrapper = styled.div<props>`

@@ -61,6 +61,9 @@ export const ImageContainer = styled.div`
     height: 50vmin;
     object-fit: cover;
     object-position: 0% center;
+    :hover {
+      opacity: 0.7;
+    }
   }
 `
 
