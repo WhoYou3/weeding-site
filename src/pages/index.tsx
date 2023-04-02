@@ -46,6 +46,8 @@ html {
 const paragraph =
   'Witaj! Nazywam się Anna Kopta-Irzyk i jestem założycielką firmy "Kuźnia Marzeń". Od zawsze marzyłam o tym, aby pomagać parom młodym worganizacji wymarzonych ślubów i uroczystości. Dzięki mojej pasji,kreatywności i zaangażowaniu, postanowiłam założyć firmę, któraoferuje kompleksowe usługi w planowaniu i organizacji wyjątkowychwydarzeń. W mojej pracy stawiam na indywidualne podejście do każdejpary, aby zrozumieć ich potrzeby i marzenia oraz pomóc im w ichrealizacji.'
 
+const test = "../assets/image/header-photo.jpg"
+
 const Home: React.FC = () => {
   return (
     <div>
