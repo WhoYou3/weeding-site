@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react"
-import { graphql, useStaticQuery } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { graphql, useStaticQuery, Link } from "gatsby"
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl"
 import * as P from "./parts"
 import { ButtonSecondary } from "../../UI/UI"
 
@@ -29,22 +29,9 @@ interface Props {
 
 const Instagram: React.FC<Props> = () => {
   const trackRef = useRef<HTMLDivElement>(null)
-  const [mouseDownAt, setMouseDownAt] = useState<number>(0)
-  const [prevPercentage, setPrevPercentage] = useState<string>("0")
-  const [tests, setTest] = useState<number>(0)
+  const [animationValue, setAnimationValue] = useState<number>(0)
 
-  console.log("test " + tests)
-
-  const handleOnDown = (e: React.MouseEvent): void => {
-    setMouseDownAt(e.clientX)
-  }
-
-  const handleOnUp = (): void => {
-    setMouseDownAt(0)
-    trackRef.current.setAttribute("data-prev-percentage", prevPercentage)
-  }
-
-  const animation = (value) => {
+  const animationMove = (value) => {
     trackRef.current.animate(
       { transform: `translateX(${value}%)` },
       { duration: 1200, fill: "forwards" }
@@ -60,56 +47,21 @@ const Instagram: React.FC<Props> = () => {
         { duration: 1200, fill: "forwards" }
       )
     }
-    console.log(value)
   }
 
-  const test = () => {
-    setTest((prev) => {
-      const updatedTest = prev - 20
-      console.log(updatedTest)
-      animation(updatedTest)
-      return updatedTest
+  const animationLeftDirection = () => {
+    setAnimationValue((prev) => {
+      const updatedValue = Math.max(Math.min(prev - 20, 0), -100)
+      animationMove(updatedValue)
+      return updatedValue
     })
   }
-  console.log(tests)
-
-  const handleOnMove = (e: React.MouseEvent | React.TouchEvent): void => {
-    if (mouseDownAt === 0) return
-
-    const clientX = "clientX" in e ? e.clientX : e.touches[0].clientX
-
-    const mouseDelta = mouseDownAt - clientX
-
-    const maxDelta = window.innerWidth / 2
-
-    const percentage = (mouseDelta / maxDelta) * -100
-    console.log(percentage)
-
-    const nextPercentageUnconstrained = parseFloat(prevPercentage) + percentage
-
-    const nextPercentage = Math.max(
-      Math.min(nextPercentageUnconstrained, 0),
-      -100
-    )
-
-    trackRef.current.setAttribute("data-percentage", nextPercentage.toString())
-    setPrevPercentage(nextPercentage.toString())
-    trackRef.current.animate(
-      { transform: `translateX(${tests}%)` },
-      { duration: 1200, fill: "forwards" }
-    )
-
-    const images = trackRef.current.getElementsByClassName("image")
-    for (let i = 0; i < images.length; i++) {
-      const image = images[i]
-
-      image?.animate(
-        {
-          objectPosition: `${tests}% center`,
-        },
-        { duration: 1200, fill: "forwards" }
-      )
-    }
+  const animationRightDirection = () => {
+    setAnimationValue((prev) => {
+      const updatedValue = Math.max(Math.min(prev + 20, 0), -100)
+      animationMove(updatedValue)
+      return updatedValue
+    })
   }
 
   const data: InstagramQuery = useStaticQuery(graphql`
@@ -133,7 +85,19 @@ const Instagram: React.FC<Props> = () => {
 
   return (
     <>
+      <P.LinkContainer>
+        <h3>Obserwuj mój instagram </h3>
+        <Link to="https://www.instagram.com/kuznia.marzen.weddingplanner/">
+          @kuznia.marzen.weddingplanner
+        </Link>
+      </P.LinkContainer>
       <P.Content>
+        <P.ArrowIcon left="0">
+          <SlArrowLeft onClick={animationLeftDirection} />
+        </P.ArrowIcon>
+        <P.ArrowIcon right="0">
+          <SlArrowRight onClick={animationRightDirection} />
+        </P.ArrowIcon>
         <P.Wrapper ref={trackRef}>
           {data.allInstagramContent.edges.map(({ node }) => (
             <P.ImageContainer draggable={false} key={node.id}>
@@ -150,19 +114,7 @@ const Instagram: React.FC<Props> = () => {
             </P.ImageContainer>
           ))}
         </P.Wrapper>
-        <P.Scroll
-          id="image-track"
-          onMouseDown={handleOnDown}
-          // onTouchStart={handleOnDown}
-          onMouseUp={handleOnUp}
-          onTouchEnd={handleOnUp}
-          onMouseMove={handleOnMove}
-          onTouchMove={handleOnMove}
-        ></P.Scroll>
       </P.Content>
-      <ButtonSecondary showing={true} onClick={test}>
-        test
-      </ButtonSecondary>
     </>
   )
 }

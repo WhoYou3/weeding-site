@@ -10,8 +10,6 @@ import * as P from "./parts"
 const Contact = () => {
   return (
     <P.Wrapper>
-      {/* <P.RightImage></P.RightImage> */}
-      {/* <P.LeftImage></P.LeftImage>  */}
       <P.TextWrapper>
         <TextWrapper>
           <h3>Zapraszam do kontaktu!</h3>
@@ -25,12 +23,18 @@ const Contact = () => {
         </TextWrapper>
       </P.TextWrapper>
       <P.Break />
-      <P.Form>
-        <input placeholder="Imie i nazwisko" />
-        <input placeholder="Email" />
-        <input placeholder="Numer telefonu" />
-        <textarea placeholder="Treśc wiadomości" />
-        <ButtonSecondary showing={true}>Wyślij</ButtonSecondary>
+      <P.Form
+        action="https://formsubmit.co/janirzyk333@gmail.com"
+        method="POST"
+      >
+        <input placeholder="Imie i nazwisko" type="text" name="name" required />
+        <input type="hidden" name="_next" value="https://facebook.com" />
+        <input placeholder="Email" type="email" name="email" required />
+        <input placeholder="Numer telefonu" type="text" name="phone" required />
+        <textarea placeholder="Treśc wiadomości" name="message" required />
+        <ButtonSecondary type="submit" showing={true}>
+          Wyślij
+        </ButtonSecondary>
         <div>
           <div>
             <TbBow size={40} />

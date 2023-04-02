@@ -1,13 +1,47 @@
 import styled from "styled-components"
+import { fonts } from "../../globalStyles"
+
+interface ArrowProps {
+  left?: string
+  right?: string
+}
 
 export const Content = styled.section`
   position: relative;
-  height: 500px;
-
+  height: 55vmin;
+  border: 1px red solid
   margin-bottom: 2rem;
+  overflow: hidden;
+`
+
+export const LinkContainer = styled.div`
+  margin-bottom: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h3 {
+    font-family: ${fonts.POPPINS};
+    font-size: 1.6rem;
+    text-align: center;
+
+    @media screen and (min-width: 820px) {
+      font-size: 2.5rem;
+    }
+  }
+  a {
+    color: #1a237e;
+
+    font-size: 1.1rem;
+
+    @media screen and (min-width: 820px) {
+      font-size: 1.3rem;
+    }
+  }
 `
 export const Wrapper = styled.div`
-  user-select: none;
   display: flex;
   gap: 2vmin;
   position: absolute;
@@ -18,7 +52,7 @@ export const Wrapper = styled.div`
 
 export const ImageContainer = styled.div`
   overflow: hidden;
-  width: 230px;
+  width: 23vmin;
 
   img {
     width: 40vmin;
@@ -28,10 +62,29 @@ export const ImageContainer = styled.div`
   }
 `
 
-export const Scroll = styled.div`
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+export const ArrowIcon = styled.div<ArrowProps>`
   position: absolute;
+  left: ${(props) => props.left};
+  right: ${(props) => props.right};
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  svg {
+    font-size: 40px;
+    color: black;
+    opacity: 0.5;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    @media screen and (min-width: 820px) {
+      font-size: 60px;
+      margin-left: 2rem;
+      margin-right: 2rem;
+    }
+  }
+
+  svg:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
 `

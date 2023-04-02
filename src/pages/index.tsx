@@ -9,8 +9,8 @@ import {
   Blog,
   AboutMe,
   References,
+  Instagram,
 } from "../components"
-import { colors } from "../globalStyles"
 
 export const GlobalStyle = createGlobalStyle`
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
@@ -69,6 +69,7 @@ const Home: React.FC = () => {
         <ParalaxPhoto />
         <Quote />
         <Blog />
+        <Instagram />
         <References showing={false} />
       </Layout>
     </div>
