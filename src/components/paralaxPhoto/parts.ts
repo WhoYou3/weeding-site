@@ -3,14 +3,16 @@ import weddingDancePhoto from "../../assets/image/weddingDance.jpg"
 
 export const ParalaxContainer = styled.div`
   height: 70svh;
-  background-image: url(${weddingDancePhoto});
-  background-size: cover;
-
-  background-position: 30%;
-
   position: relative;
   margin: 2rem 0;
 
+  .backgroundImage {
+    width: 100%;
+    height: 100%;
+    img {
+      object-position: 30%;
+    }
+  }
   @media screen and (min-width: 820px) {
     height: 100vh;
   }

@@ -12,6 +12,7 @@ export const Content = styled.section`
   border: 1px red solid
   margin-bottom: 2rem;
   overflow: hidden;
+  user-select: none;
 `
 
 export const LinkContainer = styled.div`
@@ -22,6 +23,7 @@ export const LinkContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
   h3 {
     font-family: ${fonts.POPPINS};
     font-size: 1.6rem;
