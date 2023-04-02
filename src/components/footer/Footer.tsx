@@ -34,7 +34,7 @@ const Footer = () => {
             <Link to="/">Galeria</Link>
           </li>
           <li>
-            <Link to="/">Kontakt</Link>
+            <Link to="/kontakt">Kontakt</Link>
           </li>
         </P.LinksContainer>
         <P.ContactContainer>
