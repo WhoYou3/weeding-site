@@ -1,7 +1,4 @@
 import styled from "styled-components"
-import headerPhoto from "../../assets/image/header-photo.jpg"
-import headerAboutBackground from "../../assets/image/AboutHeaderBackground-min.jpg"
-import headerOffertPhoto from "../../assets/image/OfertHeader.jpg"
 
 import { colors, fonts } from "../../globalStyles"
 
@@ -12,24 +9,25 @@ interface HeaderProps {
 
 export const Header = styled.header<HeaderProps>`
   height: 100svh;
-
-  ${(props) =>
-    ({
-      image1: `background-image: url(${headerPhoto});
-      background-position: 70%;`,
-      image2: `background-image: url(${headerAboutBackground});
-      background-position: 40%;`,
-      image3: `background-image: url(${headerOffertPhoto});
-      background-position: 60%;`,
-    }[props.backgroundImage])}
-
-  background-size: cover;
-  background-repeat: no-repeat;
   position: relative;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   padding-bottom: 3rem;
+
+  .backgroundImage {
+    width: 100%;
+    height: 100%;
+
+    img {
+      ${(props) =>
+        ({
+          image1: `object-position: 70%;`,
+          image2: `object-position: 40%`,
+          image3: `object-position: 60%`,
+        }[props.backgroundImage])}
+    }
+  }
 
   @media screen and (min-width: 1400px) {
     align-items: center;
