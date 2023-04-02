@@ -1,6 +1,13 @@
 import React from "react"
 import { GlobalStyle } from "."
-import { Layout, Header, Offer, Blog, References } from "../components"
+import {
+  Layout,
+  Header,
+  Offer,
+  Blog,
+  References,
+  Instagram,
+} from "../components"
 
 const Oferta: React.FC = () => {
   return (
@@ -34,6 +41,7 @@ const Oferta: React.FC = () => {
         reverse={true}
       />
       <Blog />
+      <Instagram />
       <References showing={false} />
     </Layout>
   )

@@ -9,6 +9,7 @@ import {
   MyDescription,
   References,
   Workship,
+  Instagram,
 } from "../components"
 const paragraph =
   "Jestem certyfikowanym wedding plannerem oraz założycielką Kuźni Marzeń. Uwielbiam oragnizować wydarzenia i obserwować jak cały projekt nabiera kształtów. W każdym projekcie staram się stworzyć coś wyjątkowego pasującego do danej pary. Zawsze staram się łączyć nowoczesne rozwiązania z niestandardowymi, ale eleganckimi elementami. Moim przepisem na sukces jest dbałość o szczegóły i wsłuchanie się w oczekiwania narzeczonych.Kuźnia Marzeń została założona w 2019 roku. Założenie agencji ślubnej to spełnienie moich marzeń. Cel dla mnie jest jeden stworzyć wspaniałe, eleganckie i luksusowe przyjęcie, które jest spełnieniem Waszych oczekiwań. Uważam, że każda Para jest wyjątkowa i nie ma dwóch identycznych wydarzeń, dlatego do każdego ślubu podchodzę indywidualnie i szukam wyjątkowych i niepowtarzalnych rozwiązań."
@@ -32,6 +33,7 @@ const Omnie = () => {
         />
         <MyDescription />
         <Workship />
+        <Instagram />
         <References showing={true} />
       </Layout>
     </div>
