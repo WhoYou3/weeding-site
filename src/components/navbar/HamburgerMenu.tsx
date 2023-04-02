@@ -34,7 +34,7 @@ const NavbarMenu: React.FC<HamburgerMenuProps> = ({
           <Link to="/oferta">Oferta</Link>
           <Link to="/">Blog</Link>
           <Link to="/">Galeria</Link>
-          <Link to="/">Kontakt</Link>
+          <Link to="/kontakt">Kontakt</Link>
         </P.HamburgerMenu>
         <P.IconsContainer>
           <Link to="/">

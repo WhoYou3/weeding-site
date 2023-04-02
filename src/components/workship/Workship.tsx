@@ -1,5 +1,6 @@
 import React from "react"
 import * as P from "./parts"
+import { Link } from "gatsby"
 import { AiOutlineCheckCircle } from "react-icons/ai"
 import { BsCardChecklist } from "react-icons/bs"
 import { IoMdContacts } from "react-icons/io"
@@ -29,7 +30,7 @@ const Testamonials: React.FC = () => {
         </P.Task>
       </P.TasksContainer>
       <ButtonSecondary showing={true} space="auto">
-        Oferta
+        <Link to="/oferta">Oferta</Link>
       </ButtonSecondary>
     </P.Wrapper>
   )

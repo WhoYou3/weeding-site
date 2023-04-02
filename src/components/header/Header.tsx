@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import * as P from "./parts"
 import * as U from "../../UI/UI"
 
@@ -25,7 +26,9 @@ const Header: React.FC<HeaderProps> = ({
         <P.Title>
           {sentence1} <br /> {sentence2} <br /> {sentence3}
         </P.Title>
-        <U.ButtonPrimary showing={show}>Sprawdź Ofertę</U.ButtonPrimary>
+        <Link to="/oferta">
+          <U.ButtonPrimary showing={show}>Sprawdź Ofertę</U.ButtonPrimary>
+        </Link>
       </P.ContentWrapper>
       <P.Shadow />
     </P.Header>
