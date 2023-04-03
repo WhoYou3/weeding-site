@@ -63,10 +63,10 @@ const Navbar: React.FC = () => {
           <Link activeClassName="active" to="/oferta">
             Oferta
           </Link>
-          <Link activeClassName="active" to="/Blog">
+          <Link activeClassName="active" to="/blog">
             Blog
           </Link>
-          <Link activeClassName="active" to="/Galeria">
+          <Link activeClassName="active" to="/galeria">
             Galeria
           </Link>
           <Link activeClassName="active" to="/kontakt">
