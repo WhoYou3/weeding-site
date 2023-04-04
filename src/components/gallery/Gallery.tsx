@@ -33,7 +33,7 @@ const Gallery = () => {
     )
     const indexOfSpecificPhoto = photos.indexOf(specificPhotoValues)
     specificPhotoValues.photo.index = indexOfSpecificPhoto
-    setSpecificImage(specificPhotoValues.photo)
+    setSpecificImage(photos[indexOfSpecificPhoto].photo)
   }
 
   return (
@@ -68,14 +68,15 @@ const Gallery = () => {
       {showSpecificImage === true ? (
         <P.Wrapper>
           <AiOutlineClose onClick={() => setShowSpecificImage(false)} />
-          <ArrowLeft size="5rem" />
-          <ArrowRight size="5rem" />
-          <P.Shadow />
+          {/* <ArrowLeft size="5rem" onClick={}) />
+          <ArrowRight size="5rem" /> */}
+          {/* <P.Shadow /> */}
           <P.SpecificImage>
             {
               <GatsbyImage
                 image={specificImage.gatsbyImageData}
                 alt={specificImage.url}
+                className="specificImage"
               ></GatsbyImage>
             }
           </P.SpecificImage>
