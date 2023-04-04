@@ -1,8 +1,9 @@
-import React, { useState } from "react"
+import React, { useState, useRef } from "react"
 import { graphql, useStaticQuery } from "gatsby"
+
 import { TextWrapper } from "../../UI/UI"
 import { AiOutlineClose } from "react-icons/ai"
-import { ArrowLeft, ArrowRight } from "react-feather"
+import { GrCopy } from "react-icons/gr"
 import * as P from "./parts"
 import { GatsbyImage } from "gatsby-plugin-image"
 
@@ -22,9 +23,11 @@ interface photosProps {
 
 const Gallery = () => {
   const [showSpecificImage, setShowSpecificImage] = useState<boolean>(false)
+  const [showCopied, setShowCopied] = useState<boolean>(false)
   const [specificImage, setSpecificImage] = useState<photosProps | null>(null)
   const data = useStaticQuery<queryProps>(query)
   const photos = data.allDatoCmsGallery.nodes
+  const inputRef = useRef<HTMLInputElement>(null)
 
   const openSpecificImage = (dataPhoto: photosProps) => {
     setShowSpecificImage(true)
@@ -34,6 +37,22 @@ const Gallery = () => {
     const indexOfSpecificPhoto = photos.indexOf(specificPhotoValues)
     specificPhotoValues.photo.index = indexOfSpecificPhoto
     setSpecificImage(photos[indexOfSpecificPhoto].photo)
+  }
+  const handleCopy = () => {
+    if (inputRef.current) {
+      navigator.clipboard.writeText(inputRef.current.value)
+    }
+    setShowCopied(true)
+    setTimeout(() => {
+      setShowCopied(false)
+    }, 500)
+  }
+  {
+    if (typeof document !== "undefined") {
+      showSpecificImage
+        ? (document.body.style.overflowY = "hidden")
+        : (document.body.style.overflowY = "visible")
+    }
   }
 
   return (
@@ -68,9 +87,6 @@ const Gallery = () => {
       {showSpecificImage === true ? (
         <P.Wrapper>
           <AiOutlineClose onClick={() => setShowSpecificImage(false)} />
-          {/* <ArrowLeft size="5rem" onClick={}) />
-          <ArrowRight size="5rem" /> */}
-          {/* <P.Shadow /> */}
           <P.SpecificImage>
             {
               <GatsbyImage
@@ -79,6 +95,11 @@ const Gallery = () => {
                 className="specificImage"
               ></GatsbyImage>
             }
+            <P.Address>
+              <input ref={inputRef} value={specificImage.url} />
+              <GrCopy onClick={handleCopy} />
+              {showCopied ? <p>Copied!</p> : null}
+            </P.Address>
           </P.SpecificImage>
         </P.Wrapper>
       ) : null}

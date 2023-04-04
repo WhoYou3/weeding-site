@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { colors } from "../../globalStyles"
 
 export const TextWrapper = styled.div`
   padding-top: 80px;
@@ -8,7 +9,7 @@ export const TextWrapper = styled.div`
     margin: auto;
   }
 `
-export const ImageContainer = styled.div`
+export const ImageContainer = styled.div` 
   -webkit-column-count: 2;
   -moz-column-count: 2;
   column-count: 2;
@@ -16,6 +17,7 @@ export const ImageContainer = styled.div`
   -moz-column-width: 33%;
   column-width: 33%;
   padding: 0 12px;
+  margin-bottom: 2rem;
 
   @media screen and (min-width: 820px) {
     -webkit-column-count: 3;
@@ -31,10 +33,17 @@ export const ImageContainer = styled.div`
 `
 
 export const Image = styled.div`
-  -webkit-transition: all 350ms ease;
-  transition: all 0.5s ease;
   cursor: pointer;
   margin-bottom: 12px;
+  background-color: #fff;
+  img {
+    :hover {
+      -webkit-transition: all 500ms ease;
+      transition: all 1s ease;
+      scale: 1.2;
+      filter: opacity(0.7);
+    }
+  }
 `
 
 export const Wrapper = styled.div`
@@ -76,25 +85,54 @@ export const Wrapper = styled.div`
     transform: translate(-50%, -50%);
   }
 `
-export const Shadow = styled.div`
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  filter: blur(50px);
-`
 
 export const SpecificImage = styled.div`
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 200;
-  width: 50vmin;
-  border: 1px red solid; */
+  position: relative;
+  height: 100vh;
+  transition: opacity 3s ease-in;
+`
 
-  @media screen and (min-width: 768px) {
+export const Address = styled.div`
+  height: 50px;
+  width: 70%;
+  position: absolute;
+  z-index: 100;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 2%;
+  display: flex;
+  align-items: center;
+  @media screen and (min-width: 820px) {
+    width: 30%;
+  }
+
+  input {
+    height: 100%;
+    width: 100%;
+    border-right: 1px rgba(0, 0, 0, 0.3);
+    outline: none;
+    border: none;
+    border-right: 1px rgba(0, 0, 0, 0.5) solid;
+    padding: 0 10px;
+    font-size: 1rem;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+  }
+
+  svg {
+    height: 100%;
+    background: white;
+    font-size: 30px;
+    padding: 0 10px;
+    cursor: pointer;
+    margin-right: 20px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  p {
+    position: absolute;
+    right: -50px;
+    padding: 5px;
+    background: ${colors.primary};
   }
 `

@@ -63,7 +63,6 @@ const Instagram: React.FC<Props> = () => {
       return updatedValue
     })
   }
-  console.log(animationValue)
 
   const data: InstagramQuery = useStaticQuery(graphql`
     query MyQuery {
@@ -88,7 +87,10 @@ const Instagram: React.FC<Props> = () => {
     <>
       <P.LinkContainer>
         <h3>Obserwuj mój instagram </h3>
-        <Link to="https://www.instagram.com/kuznia.marzen.weddingplanner/">
+        <Link
+          target="_blank"
+          to="https://www.instagram.com/kuznia.marzen.weddingplanner/"
+        >
           @kuznia.marzen.weddingplanner
         </Link>
       </P.LinkContainer>
