@@ -63,6 +63,7 @@ const Instagram: React.FC<Props> = () => {
       return updatedValue
     })
   }
+  console.log(animationValue)
 
   const data: InstagramQuery = useStaticQuery(graphql`
     query MyQuery {
@@ -92,16 +93,20 @@ const Instagram: React.FC<Props> = () => {
         </Link>
       </P.LinkContainer>
       <P.Content>
-        <P.ArrowIcon left="0">
-          <SlArrowLeft onClick={animationLeftDirection} />
-        </P.ArrowIcon>
-        <P.ArrowIcon right="0">
-          <SlArrowRight onClick={animationRightDirection} />
-        </P.ArrowIcon>
+        {animationValue > -100 ? (
+          <P.ArrowIcon left="0">
+            <SlArrowLeft onClick={animationLeftDirection} />
+          </P.ArrowIcon>
+        ) : null}
+        {animationValue < 0 ? (
+          <P.ArrowIcon right="0">
+            <SlArrowRight onClick={animationRightDirection} />
+          </P.ArrowIcon>
+        ) : null}
         <P.Wrapper ref={trackRef}>
           {data.allInstagramContent.edges.map(({ node }) => (
             <P.ImageContainer draggable={false} key={node.id}>
-              <a href={node.permalink}>
+              <Link target="_blank" to={node.permalink}>
                 <img
                   className="image"
                   src={
@@ -110,7 +115,7 @@ const Instagram: React.FC<Props> = () => {
                   }
                   alt="instaphoto"
                 ></img>
-              </a>
+              </Link>
             </P.ImageContainer>
           ))}
         </P.Wrapper>
