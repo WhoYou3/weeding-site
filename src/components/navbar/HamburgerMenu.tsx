@@ -18,9 +18,11 @@ const NavbarMenu: React.FC<HamburgerMenuProps> = ({
   showHambugerMenu,
   isOpenHamburgerMenu,
 }) => {
+  if(typeof document !== "undefiend"){
   isOpenHamburgerMenu
     ? (document.body.style.overflowY = "hidden")
     : (document.body.style.overflowY = "visible")
+  }
 
   return (
     <>
