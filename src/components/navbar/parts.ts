@@ -35,7 +35,7 @@ export const Navbar = styled.nav<NavbarProps>`
     ${({ isScrolled }) =>
       isScrolled &&
       `
-      background-color: rgba(243, 243, 243, 0.9);
+      background-color: rgba(243, 243, 243, 0.6);
       backdrop-filter: blur(10px);
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     `}

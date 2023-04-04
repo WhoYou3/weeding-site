@@ -3,6 +3,7 @@ import SimpleParallax from "simple-parallax-js"
 import { ButtonSecondary } from "../../UI/UI"
 import * as P from "./parts"
 import { StaticImage } from "gatsby-plugin-image"
+import { Link } from "gatsby"
 
 const Photo: React.FC = () => {
   const parallaxRef = useRef<HTMLDivElement>(null)
@@ -29,9 +30,11 @@ const Photo: React.FC = () => {
         className="backgroundImage"
       />
       <P.ParalaxContent>
-        <ButtonSecondary showing={true} scaleReducer="0.6">
-          Zobacz galerie
-        </ButtonSecondary>
+        <Link to="/galeria">
+          <ButtonSecondary showing={true} scaleReducer="0.6">
+            Zobacz galerie
+          </ButtonSecondary>
+        </Link>
       </P.ParalaxContent>
     </P.ParalaxContainer>
   )

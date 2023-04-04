@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { AiFillFacebook } from "react-icons/ai"
 import { BsInstagram, BsTiktok } from "react-icons/bs"
+import { FaPinterestP } from "react-icons/fa"
 import * as P from "./parts"
 
 const Footer = () => {
@@ -44,9 +45,24 @@ const Footer = () => {
           <p>TwójAdresEmail.gmail.com</p>
         </P.ContactContainer>
         <P.IconsContainer>
-          <AiFillFacebook size={40} color="white" />
-          <BsInstagram size={36} color="white" />
-          <BsTiktok size={36} color="white" />
+          <Link
+            to="https://www.facebook.com/kuznia.marzen.wedding"
+            target="_blank"
+          >
+            <AiFillFacebook size={40} color="white" />
+          </Link>
+          <Link
+            to="https://www.instagram.com/kuznia.marzen.weddingplanner/"
+            target="_blank"
+          >
+            <BsInstagram size={36} color="white" />
+          </Link>
+          <Link
+            to="https://pl.pinterest.com/akkuzniamarzen/?eq=%40akkuzniamarzen&etslf=4245"
+            target="_blank"
+          >
+            <FaPinterestP size={36} color="white" />
+          </Link>
         </P.IconsContainer>
       </P.Wrapper>
     </P.Footer>

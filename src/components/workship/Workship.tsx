@@ -29,9 +29,11 @@ const Testamonials: React.FC = () => {
           <p>Organizacja przyjęć i eventów</p>
         </P.Task>
       </P.TasksContainer>
-      <ButtonSecondary showing={true} space="auto">
-        <Link to="/oferta">Oferta</Link>
-      </ButtonSecondary>
+      <Link to="/oferta">
+        <ButtonSecondary showing={true} space="auto">
+          Oferta
+        </ButtonSecondary>
+      </Link>
     </P.Wrapper>
   )
 }
