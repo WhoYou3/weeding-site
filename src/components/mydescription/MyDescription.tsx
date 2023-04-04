@@ -1,7 +1,8 @@
 import React, { useRef, useLayoutEffect } from "react"
 import SimpleParallax from "simple-parallax-js"
 import { StaticImage } from "gatsby-plugin-image"
-import { ButtonPrimary, ButtonSecondary, TextWrapper } from "../../UI/UI"
+import { Link } from "gatsby"
+import { ButtonSecondary, TextWrapper } from "../../UI/UI"
 import * as P from "./parts"
 
 const MyDescription = () => {
@@ -49,9 +50,11 @@ const MyDescription = () => {
             marzysz, żeby był. Skontaktuj się ze mną i pozwól mi pomóc Ci w
             zaplanowaniu wymarzonego wesela.
           </p>
-          <ButtonSecondary showing={true}>
-            Skontaktuj się ze mną
-          </ButtonSecondary>
+          <Link to="/kontakt">
+            <ButtonSecondary showing={true}>
+              Skontaktuj się ze mną
+            </ButtonSecondary>
+          </Link>
         </P.ParalaxText>
       </P.ParalaxDisplay>
 
