@@ -19,7 +19,7 @@ export const Navbar = styled.nav<NavbarProps>`
   top: 0;
   left: 0;
   right: 0;
-  z-index: 99999;
+  z-index: 40;
 
   @media screen and (max-width: 820px) {
     transform: ${({ mobileHideNav, isOpenHamburgerMenu }) =>
@@ -72,7 +72,7 @@ export const NavContainer = styled.div<NavbarProps>`
     }
     img {
       height: ${({ isScrolled }) => (isScrolled ? "72px" : "162px")};
-      transition: height 0.7s ease;
+      transition: height 0.7s ease, opacity 2s ease;
     }
   }
 `
@@ -86,6 +86,10 @@ export const LinksContainer = styled.div`
   font-weight: 600;
   font-size: 20px;
   width: 600px;
+
+  .active {
+    color: ${colors.hover};
+  }
 
   a {
     color: ${colors.linksColor};
@@ -131,6 +135,9 @@ export const HamburgerMenu = styled.div`
   opacity: 1;
   align-items: center;
   justify-content: space-around;
+  .active {
+    color: ${colors.hover};
+  }
 
   img {
     height: 250px;
@@ -155,4 +162,6 @@ export const HamburgerMenu = styled.div`
   }
 `
 
-export const IconsContainer = styled.div``
+export const IconsContainer = styled.div`
+  margin-bottom: 50px;
+`

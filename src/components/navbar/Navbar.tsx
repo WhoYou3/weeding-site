@@ -54,12 +54,24 @@ const Navbar: React.FC = () => {
         />
 
         <P.LinksContainer>
-          <Link to="/">Strona Główna </Link>
-          <Link to="/omnie">O mnie</Link>
-          <Link to="/oferta">Oferta</Link>
-          <Link to="/">Blog</Link>
-          <Link to="/">Galeria</Link>
-          <Link to="/kontakt">Kontakt</Link>
+          <Link activeClassName="active" to="/">
+            Strona Główna{" "}
+          </Link>
+          <Link activeClassName="active" to="/omnie">
+            O mnie
+          </Link>
+          <Link activeClassName="active" to="/oferta">
+            Oferta
+          </Link>
+          <Link activeClassName="active" to="/blog">
+            Blog
+          </Link>
+          <Link activeClassName="active" to="/galeria">
+            Galeria
+          </Link>
+          <Link activeClassName="active" to="/kontakt">
+            Kontakt
+          </Link>
         </P.LinksContainer>
         {!isOpenHamburgerMenu ? (
           <TbMenu2 onClick={showHambugerMenu} size={25} />
