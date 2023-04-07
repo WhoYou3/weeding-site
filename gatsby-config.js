@@ -7,9 +7,9 @@ require("dotenv").config({
 module.exports = {
   siteMetadata: {
     siteUrl: "https://gatsbydatocmshomepage.gatsbyjs.io/",
-    title: "Gatsby DatoCMS Homepage Starter",
-    author: `Gatsby`,
-    description: "A Gatsby Starter for building homepages with DatoCMS",
+    title: "Kuznia Marzen Wedding Planner",
+    author: `Jan Irzyk`,
+    description: "Portfolio page",
   },
   plugins: [
     {
@@ -55,6 +55,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-vanilla-extract",
     "gatsby-plugin-styled-components",
+    "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-plugin-manifest",
       options: {

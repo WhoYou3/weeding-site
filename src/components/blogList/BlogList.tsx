@@ -7,6 +7,7 @@ import { GlobalStyle } from "../../pages"
 import { ButtonSecondary, TextWrapper } from "../../UI/UI"
 import { GatsbyImage } from "gatsby-plugin-image"
 import slugify from "slugify"
+import InBuild from "../inBuild/InBuild"
 
 type BlogPost = {
   headerPhoto: {
@@ -31,6 +32,8 @@ const BlogList = () => {
   const blogs = data.allDatoCmsBlogpost.nodes
 
   const content = blogs.map((blog) => {
+    const incentive = blog.incentive
+    const shortincentive = incentive.split(" ").slice(0, 60).join(" ")
     const slug = slugify(blog.title, { lower: true })
     return (
       <P.Blog>
@@ -45,7 +48,7 @@ const BlogList = () => {
             <span>{blog.date}</span>
           </p>
           <div /> <p>{blog.category}</p>
-          <p>{blog.incentive}</p>
+          <p>{shortincentive}...</p>
           <Link to={`/${slug}`}>
             <ButtonSecondary showing={true}>Czytaj więcej</ButtonSecondary>
           </Link>
@@ -53,27 +56,34 @@ const BlogList = () => {
       </P.Blog>
     )
   })
+  console.log(blogs.length)
 
   return (
     <P.Wrapper>
       <GlobalStyle />
       <Layout>
-        <P.TextWrapper>
-          <TextWrapper>
-            <h3>Blog</h3>
-            <p>
-              Jeśli chcesz zobaczyć, jak pięknie można udekorować salę weselną,
-              jakie bukiety kwiatów warto wybrać czy jakie dodatki będą
-              najlepiej się komponować, to nasz blog to idealne miejsce dla
-              Ciebie! Przeglądając nasze wpisy, zobaczysz wiele inspiracji i
-              pomysłów, które pomogą Ci w organizacji wymarzonego ślubu.
-            </p>
-          </TextWrapper>
-        </P.TextWrapper>
-        <P.BlogsWrapper>
-          {content}
-          {content}
-        </P.BlogsWrapper>
+        {blogs.length > 0 ? (
+          <>
+            <P.TextWrapper>
+              <TextWrapper>
+                <h3>Blog</h3>
+                <p>
+                  Jeśli chcesz zobaczyć, jak pięknie można udekorować salę
+                  weselną, jakie bukiety kwiatów warto wybrać czy jakie dodatki
+                  będą najlepiej się komponować, to nasz blog to idealne miejsce
+                  dla Ciebie! Przeglądając nasze wpisy, zobaczysz wiele
+                  inspiracji i pomysłów, które pomogą Ci w organizacji
+                  wymarzonego ślubu.
+                </p>
+              </TextWrapper>
+            </P.TextWrapper>
+            <P.BlogsWrapper>{content}</P.BlogsWrapper>
+          </>
+        ) : (
+          <>
+            <InBuild />
+          </>
+        )}
       </Layout>
     </P.Wrapper>
   )

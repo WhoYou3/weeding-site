@@ -38,7 +38,7 @@ export const Blog = styled.li`
   display: flex;
   flex-direction: column;
   margin: 0 2rem;
-  height: fit-content;
+  margin-bottom: 2rem;
 
   word-wrap: break-word;
   background: ${colors.primary};
@@ -47,6 +47,7 @@ export const Blog = styled.li`
 
   .gatsbyImage {
     max-height: 300px;
+    min-height: 300px;
   }
 `
 

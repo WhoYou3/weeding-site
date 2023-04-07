@@ -5,7 +5,7 @@ import {
   StructuredTextDocument,
 } from "datocms-structured-text-to-html-string"
 import { GlobalStyle } from "."
-import { Instagram, Layout } from "../components"
+import { Instagram, Layout, SEO } from "../components"
 import styled from "styled-components"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { fonts } from "../globalStyles"
@@ -13,6 +13,7 @@ import { fonts } from "../globalStyles"
 interface BlogPost {
   data: {
     datoCmsBlogpost: {
+      title: string
       author: string
       body1?: {
         blocks: string[]
@@ -20,6 +21,11 @@ interface BlogPost {
         value: StructuredTextDocument
       }
       body2?: {
+        blocks: string[]
+        links: string[]
+        value: StructuredTextDocument
+      }
+      body3?: {
         blocks: string[]
         links: string[]
         value: StructuredTextDocument
@@ -35,6 +41,9 @@ interface BlogPost {
       photosbody2?: {
         gatsbyImageData: any
       }[]
+      photosbody3?: {
+        gatsbyImageData: any
+      }[]
     }
   }
 }
@@ -44,19 +53,26 @@ const BlogTemplate: React.FC<BlogPost> = ({ data }) => {
 
   const blog = blogData.body1.value
   const blog2 = blogData.body2.value
+  const blog3 = blogData.body3.value
   const body1HTML = render(blog)
   const body2HTML = render(blog2)
+  const body3HTML = render(blog3)
 
   return (
     <div>
       <Layout>
         <GlobalStyle />
+        <SEO
+          title={blogData.title}
+          description="Tutaj znajdziesz konkretn artykuł z poradami ślubnymi"
+        />
         <Wrapper>
           <GatsbyImage
             image={blogData.headerPhoto.gatsbyImageData}
             alt="header-photo"
             className="headerPhoto"
           ></GatsbyImage>
+          <Title>{blogData.title}</Title>
           <Content>
             <div dangerouslySetInnerHTML={{ __html: body1HTML }}></div>
             <ImageContainer>
@@ -82,6 +98,18 @@ const BlogTemplate: React.FC<BlogPost> = ({ data }) => {
                 </Image>
               ))}
             </ImageContainer>
+            <div dangerouslySetInnerHTML={{ __html: body3HTML }}></div>
+            <ImageContainer>
+              {blogData.photosbody3.map((photo) => (
+                <Image>
+                  <GatsbyImage
+                    image={photo.gatsbyImageData}
+                    alt="gallery-photos"
+                    className="containerPhoto"
+                  ></GatsbyImage>
+                </Image>
+              ))}
+            </ImageContainer>
           </Content>
         </Wrapper>
         <Signature>{blogData.author}</Signature>
@@ -98,12 +126,18 @@ export const query = graphql`
   query ($title: String) {
     datoCmsBlogpost(title: { eq: $title }) {
       author
+      title
       body1 {
         blocks
         links
         value
       }
       body2 {
+        blocks
+        links
+        value
+      }
+      body3 {
         blocks
         links
         value
@@ -117,6 +151,9 @@ export const query = graphql`
         gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
       }
       photosbody2 {
+        gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+      }
+      photosbody3 {
         gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
       }
     }
@@ -151,6 +188,8 @@ const Wrapper = styled.section`
     }
     @media screen and (min-width: 1024px) {
       width: 70%;
+    }
+    img {
     }
   }
   p {
@@ -201,6 +240,10 @@ const Content = styled.div`
     width: 70%;
   }
 `
+const Title = styled.h1`
+  font-size: 2.2rem;
+  text-align: center;
+`
 
 export const ImageContainer = styled.div`
   margin: 2rem 0;
@@ -221,8 +264,11 @@ const Image = styled.div`
   @media screen and (min-width: 820px) {
     .containerPhoto {
       height: 55vmin;
+
       img {
         object-position: center;
+
+        object-fit: contain;
       }
     }
   }

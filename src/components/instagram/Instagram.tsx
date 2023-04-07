@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl"
 import * as P from "./parts"
-import { ButtonSecondary } from "../../UI/UI"
 
 interface InstagramNode {
   id: string
@@ -27,7 +26,7 @@ interface Props {
   data: InstagramQuery
 }
 
-const Instagram: React.FC<Props> = () => {
+const Instagram: React.FC = () => {
   const trackRef = useRef<HTMLDivElement>(null)
   const [animationValue, setAnimationValue] = useState<number>(0)
 
