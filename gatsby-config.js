@@ -15,9 +15,8 @@ module.exports = {
     {
       resolve: "gatsby-source-datocms",
       options: {
-        apiToken: process.env.DATOCMS_API_TOKEN,
-        environment: process.env.DATOCMS_ENVIRONMENT,
-
+        apiToken: "YOUR_DATOCMS_API_TOKEN",
+        preview: true,
         disableLiveReload: false,
       },
     },
