@@ -41,9 +41,9 @@ export const Image = styled.div`
   background-color: #fff;
   img {
     :hover {
-      -webkit-transition: all 500ms ease;
       transition: all 1s ease;
-      scale: 1.2;
+      -webkit-transition: all 500ms ease;
+      transform: scale(1.2);
       filter: opacity(0.7);
     }
   }
