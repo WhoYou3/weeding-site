@@ -3,6 +3,9 @@ import { colors } from "../../globalStyles"
 
 export const TextWrapper = styled.div`
   padding-top: 80px;
+  p {
+    text-align: center;
+  }
 
   @media screen and (min-width: 820px) {
     width: 70%;

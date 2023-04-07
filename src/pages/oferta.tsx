@@ -7,43 +7,50 @@ import {
   Blog,
   References,
   Instagram,
+  SEO,
 } from "../components"
 
 const Oferta: React.FC = () => {
   return (
-    <Layout>
-      <GlobalStyle />
-      <Header
-        sentence1="Czym się zajmuje?"
-        backgroundImage="image3"
-        textPlace="300px"
-      />
-      <Offer
-        kindOffer="Kompleksowa organizacja ślubu"
-        description={description1}
-        kindPhoto="photo1"
-      />
-      <Offer
-        kindOffer="Koordynacja ślubu "
-        description={description2}
-        kindPhoto="photo2"
-        reverse={true}
-      />
-      <Offer
-        kindOffer="Konsultacje ślubne "
-        description={description3}
-        kindPhoto="photo3"
-      />
-      <Offer
-        kindOffer="Organizacja przyjęć okolicznościowych i eventów firmowych. "
-        description={description4}
-        kindPhoto="photo4"
-        reverse={true}
-      />
-      <Blog />
-      <Instagram />
-      <References showing={false} />
-    </Layout>
+    <>
+      <Layout>
+        <GlobalStyle />
+        <SEO
+          title="Oferta"
+          description="Nasza oferta to szeroki zakres usług, które pomogą Ci zorganizować wymarzone wesele. Oferujemy kompleksowe planowanie i koordynację, dekoracje i aranżacje, catering, fotografię i wiele więcej. Zaufaj nam i ciesz się pięknym, niezapomnianym dniem."
+        />
+        <Header
+          sentence1="Czym się zajmuje?"
+          backgroundImage="image3"
+          textPlace="300px"
+        />
+        <Offer
+          kindOffer="Kompleksowa organizacja ślubu"
+          description={description1}
+          kindPhoto="photo1"
+        />
+        <Offer
+          kindOffer="Koordynacja ślubu "
+          description={description2}
+          kindPhoto="photo2"
+          reverse={true}
+        />
+        <Offer
+          kindOffer="Konsultacje ślubne "
+          description={description3}
+          kindPhoto="photo3"
+        />
+        <Offer
+          kindOffer="Organizacja przyjęć okolicznościowych i eventów firmowych. "
+          description={description4}
+          kindPhoto="photo4"
+          reverse={true}
+        />
+        <Blog />
+        <Instagram />
+        <References showing={false} />
+      </Layout>
+    </>
   )
 }
 

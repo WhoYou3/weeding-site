@@ -4,7 +4,7 @@ import { BsFillHandThumbsUpFill } from "react-icons/bs"
 import * as P from "./parts"
 import { ButtonPrimary, ButtonSecondary } from "../../UI/UI"
 
-interface Props {
+interface Query {
   allDatoCmsReferencje: {
     nodes: {
       nameAndLastname: string
@@ -13,11 +13,13 @@ interface Props {
       id: string
     }[]
   }
+}
+interface Props {
   showing?: boolean
 }
 
 const References: React.FC<Props> = ({ showing }) => {
-  const data = useStaticQuery<Props>(query)
+  const data = useStaticQuery<Query>(query)
   const [displayedReferences, setDisplayedReferences] = useState<number>(3)
   const nodes = data.allDatoCmsReferencje.nodes.slice(0, displayedReferences)
   const nodesLength = data.allDatoCmsReferencje.nodes.length

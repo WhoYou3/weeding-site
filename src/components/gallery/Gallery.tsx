@@ -6,6 +6,7 @@ import { AiOutlineClose } from "react-icons/ai"
 import { GrCopy } from "react-icons/gr"
 import * as P from "./parts"
 import { GatsbyImage } from "gatsby-plugin-image"
+import InBuild from "../inBuild/InBuild"
 
 interface queryProps {
   allDatoCmsGallery: {
@@ -57,52 +58,58 @@ const Gallery = () => {
 
   return (
     <div>
-      <P.TextWrapper>
-        <TextWrapper>
-          <h3>Galeria</h3>
-          <p>
-            Obejrzyj nasze piękne aranżacje sali, bukiety i dekoracje, a także
-            niezapomniane momenty z imprez weselnych, które udało nam się
-            zorganizować dla naszych klientów. Przekonaj się, że warto nam
-            zaufać i zobacz, jak możemy uczynić Twój ślub niezapomnianym
-            wydarzeniem!
-          </p>
-        </TextWrapper>
-      </P.TextWrapper>
-      <P.ImageContainer>
-        {photos.map((photo) => (
-          <P.Image
-            onClick={() => {
-              openSpecificImage(photo.photo)
-            }}
-            key={photo.photo.originalId}
-          >
-            <GatsbyImage
-              image={photo.photo.gatsbyImageData}
-              alt={photo.photo.url}
-            />
-          </P.Image>
-        ))}
-      </P.ImageContainer>
-      {showSpecificImage === true ? (
-        <P.Wrapper>
-          <AiOutlineClose onClick={() => setShowSpecificImage(false)} />
-          <P.SpecificImage>
-            {
-              <GatsbyImage
-                image={specificImage.gatsbyImageData}
-                alt={specificImage.url}
-                className="specificImage"
-              ></GatsbyImage>
-            }
-            <P.Address>
-              <input ref={inputRef} value={specificImage.url} />
-              <GrCopy onClick={handleCopy} />
-              {showCopied ? <p>Copied!</p> : null}
-            </P.Address>
-          </P.SpecificImage>
-        </P.Wrapper>
-      ) : null}
+      {data.allDatoCmsGallery.nodes.length > 0 ? (
+        <>
+          <P.TextWrapper>
+            <TextWrapper>
+              <h3>Galeria</h3>
+              <p>
+                Obejrzyj nasze piękne aranżacje sali, bukiety i dekoracje, a
+                także niezapomniane momenty z imprez weselnych, które udało nam
+                się zorganizować dla naszych klientów. Przekonaj się, że warto
+                nam zaufać i zobacz, jak możemy uczynić Twój ślub niezapomnianym
+                wydarzeniem!
+              </p>
+            </TextWrapper>
+          </P.TextWrapper>
+          <P.ImageContainer>
+            {photos.map((photo) => (
+              <P.Image
+                onClick={() => {
+                  openSpecificImage(photo.photo)
+                }}
+                key={photo.photo.originalId}
+              >
+                <GatsbyImage
+                  image={photo.photo.gatsbyImageData}
+                  alt={photo.photo.url}
+                />
+              </P.Image>
+            ))}
+          </P.ImageContainer>
+          {showSpecificImage === true ? (
+            <P.Wrapper>
+              <AiOutlineClose onClick={() => setShowSpecificImage(false)} />
+              <P.SpecificImage>
+                {
+                  <GatsbyImage
+                    image={specificImage.gatsbyImageData}
+                    alt={specificImage.url}
+                    className="specificImage"
+                  ></GatsbyImage>
+                }
+                <P.Address>
+                  <input ref={inputRef} value={specificImage.url} />
+                  <GrCopy onClick={handleCopy} />
+                  {showCopied ? <p>Copied!</p> : null}
+                </P.Address>
+              </P.SpecificImage>
+            </P.Wrapper>
+          ) : null}
+        </>
+      ) : (
+        <InBuild />
+      )}
     </div>
   )
 }
@@ -111,7 +118,7 @@ export default Gallery
 
 export const query = graphql`
   query {
-    allDatoCmsGallery {
+    allDatoCmsGallery(sort: { meta: { createdAt: DESC } }) {
       nodes {
         photo {
           gatsbyImageData(placeholder: BLURRED)

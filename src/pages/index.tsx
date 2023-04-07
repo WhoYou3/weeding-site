@@ -10,6 +10,7 @@ import {
   AboutMe,
   References,
   Instagram,
+  SEO,
 } from "../components"
 
 export const GlobalStyle = createGlobalStyle`
@@ -53,6 +54,10 @@ const Home: React.FC = () => {
     <div>
       <GlobalStyle />
       <Layout>
+        <SEO
+          title="Strona Główna"
+          description="Zapraszamy do świata Wedding Plenera - profesjonalnej firmy organizującej wesela plenerowe na najwyższym poziomie. Nasza firma oferuje kompleksową organizację wesel w plenerze, dostarczając wyjątkowe wrażenia związane z romantycznymi dekoracjami, zapierającymi dech w piersiach krajobrazami i pysznym cateringiem. Zaufaj nam i zrealizuj swoje marzenia o wyjątkowym ślubie w plenerze i nie tylko!"
+        />
         <Header
           sentence1="Wasza miłość,"
           sentence2="Nasza praca,"
