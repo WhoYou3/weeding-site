@@ -62,6 +62,8 @@ export const TextContainer = styled.div`
   align-items: center;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
   font-size: 0.7rem;
+  p {
+  }
 `
 
 export const Text = styled.h3`
