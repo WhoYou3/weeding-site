@@ -24,7 +24,6 @@ const Contact = () => {
       </P.TextWrapper>
       <P.Break />
       <P.Form
-        onSubmit={(e) => e.preventDefault}
         action="https://formsubmit.co/anna.kuznia.marzen@gmail.com"
         method="POST"
       >
