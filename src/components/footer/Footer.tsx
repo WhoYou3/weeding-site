@@ -40,9 +40,9 @@ const Footer = () => {
         </P.LinksContainer>
         <P.ContactContainer>
           <p>Anna Kopta-Irzyk</p>
-          <p>666-666-666</p>
+          <p>694-050-344</p>
 
-          <p>TwójAdresEmail.gmail.com</p>
+          <p>anna.kuznia.marzen@gmail.com</p>
         </P.ContactContainer>
         <P.IconsContainer>
           <Link
