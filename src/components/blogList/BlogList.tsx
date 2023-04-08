@@ -8,6 +8,7 @@ import { ButtonSecondary, TextWrapper } from "../../UI/UI"
 import { GatsbyImage } from "gatsby-plugin-image"
 import slugify from "slugify"
 import InBuild from "../inBuild/InBuild"
+import Instagram from "../instagram/Instagram"
 
 type BlogPost = {
   headerPhoto: {
@@ -56,7 +57,6 @@ const BlogList = () => {
       </P.Blog>
     )
   })
-  console.log(blogs.length)
 
   return (
     <P.Wrapper>
@@ -84,6 +84,7 @@ const BlogList = () => {
             <InBuild />
           </>
         )}
+        <Instagram />
       </Layout>
     </P.Wrapper>
   )

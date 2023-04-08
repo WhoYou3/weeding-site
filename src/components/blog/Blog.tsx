@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from "react"
-
+import { Link } from "gatsby"
 import SimpleParallax from "simple-parallax-js"
-
 import * as P from "./parts"
 
 const Blog: React.FC = () => {
@@ -26,7 +25,10 @@ const Blog: React.FC = () => {
           <P.Text>
             Jeżeli chcesz być na bieżąco z najnowszymi ślubnymi trendami i
             poznać przed jakimi trudnymi wyborami stoją Państwo Młodzi
-            koniecznie <span>śledź mojego Bloga.</span>
+            koniecznie{" "}
+            <Link to="/blog">
+              <span>śledź mojego Bloga.</span>
+            </Link>
           </P.Text>
         </P.TextContainer>
         <P.ImagesContainer>

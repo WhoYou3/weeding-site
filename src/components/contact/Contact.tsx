@@ -24,13 +24,19 @@ const Contact = () => {
       </P.TextWrapper>
       <P.Break />
       <P.Form
-        action="https://formsubmit.co/janirzyk333@gmail.com"
+        onSubmit={(e) => e.preventDefault}
+        action="https://formsubmit.co/anna.kuznia.marzen@gmail.com"
         method="POST"
       >
         <input placeholder="Imie i nazwisko" type="text" name="name" required />
-        <input type="hidden" name="_next" value="https://facebook.com" />
+        <input type="hidden" name="_next" value="www.kuznia-marzen.pl" />
         <input placeholder="Email" type="email" name="email" required />
-        <input placeholder="Numer telefonu" type="text" name="phone" required />
+        <input
+          placeholder="Numer telefonu"
+          type="number"
+          name="phone"
+          required
+        />
         <textarea placeholder="Treśc wiadomości" name="message" required />
         <ButtonSecondary type="submit" showing={true}>
           Wyślij
@@ -49,10 +55,10 @@ const Contact = () => {
       </P.Form>
       <P.Contact>
         <div>
-          <ImPhone size={30} /> <p>666-666-666</p>
+          <ImPhone size={30} /> <p>694-050-344</p>
         </div>
         <div>
-          <HiOutlineMail size={30} /> <p>annamail@gmail.com</p>
+          <HiOutlineMail size={30} /> <p>anna.kuznia.marzen@gmail.com</p>
         </div>
       </P.Contact>
     </P.Wrapper>
