@@ -47,11 +47,13 @@ const Navbar: React.FC = () => {
       isScrolled={isScrolled}
     >
       <P.NavContainer isScrolled={isScrolled}>
-        <StaticImage
-          placeholder="blurred"
-          src="../../assets/image/logo1.png"
-          alt="logo"
-        />
+        <Link to="/">
+          <StaticImage
+            placeholder="blurred"
+            src="../../assets/image/logo1.png"
+            alt="logo"
+          />
+        </Link>
 
         <P.LinksContainer>
           <Link activeClassName="active" to="/">

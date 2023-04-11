@@ -54,24 +54,24 @@ const NavbarMenu: React.FC<HamburgerMenuProps> = ({
           </Link>
         </P.HamburgerMenu>
         <P.IconsContainer>
-          <Link
-            to="https://www.facebook.com/kuznia.marzen.wedding"
+          <a
+            href="https://www.facebook.com/kuznia.marzen.wedding"
             target="_blank"
           >
             <AiFillFacebook size={40} />
-          </Link>
-          <Link
-            to="https://www.instagram.com/kuznia.marzen.weddingplanner/"
+          </a>
+          <a
+            href="https://www.instagram.com/kuznia.marzen.weddingplanner/"
             target="_blank"
           >
             <AiFillInstagram size={40} />
-          </Link>
-          <Link
-            to="https://pl.pinterest.com/akkuzniamarzen/?eq=%40akkuzniamarzen&etslf=4245"
+          </a>
+          <a
+            href="https://pl.pinterest.com/akkuzniamarzen/?eq=%40akkuzniamarzen&etslf=4245"
             target="_blank"
           >
             <FaPinterestP size={36} style={{ color: "black" }} color="white" />
-          </Link>
+          </a>
         </P.IconsContainer>
       </P.Background>
     </>

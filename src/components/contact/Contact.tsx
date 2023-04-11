@@ -24,12 +24,16 @@ const Contact = () => {
       </P.TextWrapper>
       <P.Break />
       <P.Form
-        onSubmit={(e) => e.preventDefault}
         action="https://formsubmit.co/anna.kuznia.marzen@gmail.com"
         method="POST"
       >
+        <input
+          type="hidden"
+          name="_next"
+          value="https://kuznia-marzen.pl"
+        ></input>
         <input placeholder="Imie i nazwisko" type="text" name="name" required />
-        <input type="hidden" name="_next" value="www.kuznia-marzen.pl" />
+
         <input placeholder="Email" type="email" name="email" required />
         <input
           placeholder="Numer telefonu"
