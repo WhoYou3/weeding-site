@@ -22,7 +22,6 @@ const AboutMe: React.FC<AboutMeProps> = (props) => {
         const elementTop = animateElement.current.getBoundingClientRect().top
         const elementHeight = animateElement.current.offsetHeight
         const windowHeight = window.innerHeight
-        console.log("test")
 
         if (elementTop + elementHeight < windowHeight) {
           setIsVisible(true)

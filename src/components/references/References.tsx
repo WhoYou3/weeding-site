@@ -5,7 +5,7 @@ import * as P from "./parts"
 import { ButtonPrimary, ButtonSecondary } from "../../UI/UI"
 
 interface Query {
-  allDatoCmsReferencje: {
+  allDatoCmsReferencje?: {
     nodes: {
       nameAndLastname: string
       reference: string

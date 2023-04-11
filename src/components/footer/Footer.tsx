@@ -45,24 +45,24 @@ const Footer = () => {
           <p>anna.kuznia.marzen@gmail.com</p>
         </P.ContactContainer>
         <P.IconsContainer>
-          <Link
-            to="https://www.facebook.com/kuznia.marzen.wedding"
+          <a
+            href="https://www.facebook.com/kuznia.marzen.wedding"
             target="_blank"
           >
             <AiFillFacebook size={40} color="white" />
-          </Link>
-          <Link
-            to="https://www.instagram.com/kuznia.marzen.weddingplanner/"
+          </a>
+          <a
+            href="https://www.instagram.com/kuznia.marzen.weddingplanner/"
             target="_blank"
           >
             <BsInstagram size={36} color="white" />
-          </Link>
-          <Link
-            to="https://pl.pinterest.com/akkuzniamarzen/?eq=%40akkuzniamarzen&etslf=4245"
+          </a>
+          <a
+            href="https://pl.pinterest.com/akkuzniamarzen/?eq=%40akkuzniamarzen&etslf=4245"
             target="_blank"
           >
             <FaPinterestP size={36} color="white" />
-          </Link>
+          </a>
         </P.IconsContainer>
       </P.Wrapper>
     </P.Footer>
