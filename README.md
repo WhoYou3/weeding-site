@@ -12,7 +12,7 @@
 </ul>
 
 <h2>How to run ? </h2> 
-<p>For run u need to acess API TOKEN from DATACMS and for Instagram and run command npm install and gatsby develop</p>
+<p>For run u need to access API TOKEN from DATACMS and for Instagram and run command npm install and gatsby develop</p>
 
 <h3>Link</h3>
 <a href='https://kuznia-marzen.pl/'>kuznia-marzen</a>
