@@ -15,13 +15,10 @@ const NavbarMenu: React.FC<HamburgerMenuProps> = ({
   isOpenHamburgerMenu,
 }) => {
   if (typeof document !== "undefined") {
-
     isOpenHamburgerMenu
       ? (document.body.style.overflowY = "hidden")
       : (document.body.style.overflowY = "visible")
   }
-
-
 
   return (
     <>
@@ -34,22 +31,42 @@ const NavbarMenu: React.FC<HamburgerMenuProps> = ({
         <P.HamburgerMenu>
           <StaticImage src="../../assets/image/logo1.png" alt="logo" />
 
-          <Link activeClassName="active" to="/">
+          <Link data-cy="hamburger-link-home" activeClassName="active" to="/">
             Strona Główna
           </Link>
-          <Link activeClassName="active" to="/omnie">
+          <Link
+            data-cy="hamburger-link-omnie"
+            activeClassName="active"
+            to="/omnie"
+          >
             O mnie
           </Link>
-          <Link activeClassName="active" to="/oferta">
+          <Link
+            data-cy="hamburger-link-oferta"
+            activeClassName="active"
+            to="/oferta"
+          >
             Oferta
           </Link>
-          <Link activeClassName="active" to="/blog">
+          <Link
+            data-cy="hamburger-link-blog"
+            activeClassName="active"
+            to="/blog"
+          >
             Blog
           </Link>
-          <Link activeClassName="active" to="/galeria">
+          <Link
+            data-cy="hamburger-link-galeria"
+            activeClassName="active"
+            to="/galeria"
+          >
             Galeria
           </Link>
-          <Link activeClassName="active" to="/kontakt">
+          <Link
+            data-cy="hamburger-link-kontakt"
+            activeClassName="active"
+            to="/kontakt"
+          >
             Kontakt
           </Link>
         </P.HamburgerMenu>

@@ -56,27 +56,47 @@ const Navbar: React.FC = () => {
         </Link>
 
         <P.LinksContainer>
-          <Link activeClassName="active" to="/">
+          <Link data-cy="navbar-link-home" activeClassName="active" to="/">
             Strona Główna{" "}
           </Link>
-          <Link activeClassName="active" to="/omnie">
+          <Link
+            data-cy="navbar-link-omnie"
+            activeClassName="active"
+            to="/omnie"
+          >
             O mnie
           </Link>
-          <Link activeClassName="active" to="/oferta">
+          <Link
+            data-cy="navbar-link-oferta"
+            activeClassName="active"
+            to="/oferta"
+          >
             Oferta
           </Link>
-          <Link activeClassName="active" to="/blog">
+          <Link data-cy="navbar-link-blog" activeClassName="active" to="/blog">
             Blog
           </Link>
-          <Link activeClassName="active" to="/galeria">
+          <Link
+            data-cy="navbar-link-galeria"
+            activeClassName="active"
+            to="/galeria"
+          >
             Galeria
           </Link>
-          <Link activeClassName="active" to="/kontakt">
+          <Link
+            data-cy="navbar-link-kontakt"
+            activeClassName="active"
+            to="/kontakt"
+          >
             Kontakt
           </Link>
         </P.LinksContainer>
         {!isOpenHamburgerMenu ? (
-          <TbMenu2 onClick={showHambugerMenu} size={25} />
+          <TbMenu2
+            data-cy="hamburger-icon"
+            onClick={showHambugerMenu}
+            size={25}
+          />
         ) : null}
       </P.NavContainer>
       <HamburgerMenu
