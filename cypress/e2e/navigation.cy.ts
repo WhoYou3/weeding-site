@@ -1,8 +1,11 @@
-describe("template spec", () => {
-  it("passes", () => {
+/// <reference types="Cypress"/>
+
+describe("navigation", () => {
+  it("navigation buttons and links", () => {
     cy.visit("/")
 
     // Test all navigate links in navbar
+
     cy.contains("a", /O mnie/i).click()
     cy.checkUrl("/omnie/")
     cy.contains("a", /Oferta/i).click()
