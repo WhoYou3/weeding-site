@@ -75,6 +75,7 @@ const Gallery = () => {
           <P.ImageContainer>
             {photos.map((photo) => (
               <P.Image
+                data-cy="image-wrapper"
                 onClick={() => {
                   openSpecificImage(photo.photo)
                 }}
