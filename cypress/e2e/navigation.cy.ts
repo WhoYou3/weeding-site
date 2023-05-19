@@ -32,5 +32,24 @@ describe("navigation", () => {
     cy.visit("/omnie")
     cy.contains("button", /Skontaktuj się ze mną/i).click({ force: true })
     cy.checkUrl("/kontakt/")
+
+    // Check footer
+
+    cy.get("footer")
+      .find("ul")
+      .within(() => {
+        cy.get("a").eq(0).click({ force: true })
+        cy.checkUrl("/")
+        cy.get("a").eq(1).click({ force: true })
+        cy.checkUrl("/omnie/")
+        cy.get("a").eq(2).click({ force: true })
+        cy.checkUrl("/oferta/")
+        cy.get("a").eq(3).click({ force: true })
+        cy.checkUrl("/blog/")
+        cy.get("a").eq(4).click({ force: true })
+        cy.checkUrl("/galeria/")
+        cy.get("a").eq(5).click({ force: true })
+        cy.checkUrl("/kontakt/")
+      })
   })
 })
