@@ -39,3 +39,16 @@
 Cypress.Commands.add("checkUrl", (expectedUrl) => {
   cy.location("pathname").should("eq", expectedUrl)
 })
+
+Cypress.Commands.add("checkReference", (lengthReference) => {
+  cy.get(".parts__ReferenceWrapper-sc-a8t11i-1")
+    .as("referenceContainer")
+    .then((element) => {
+      expect(element.length).be.eq(lengthReference)
+    })
+  cy.get("@referenceContainer").within(() => {
+    cy.get("h3").should("exist")
+    cy.get("p").should("exist")
+    cy.get("svg").should("exist")
+  })
+})

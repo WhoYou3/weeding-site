@@ -21,16 +21,11 @@ const Offer: React.FC<OfferProps> = ({
 
   const [isVisible, setIsVisible] = useState<boolean>(false)
   useEffect(() => {
-    console.log("test")
     const handleScroll = (): void => {
       if (animateElement.current) {
         const elementTop = animateElement.current.getBoundingClientRect().top
         const elementHeight = animateElement.current.offsetHeight
         const windowHeight = window.innerHeight
-
-        console.log(elementTop + " elementtop")
-        console.log(elementHeight + " elementHeight")
-        console.log(windowHeight + "elementWindowHeigh")
 
         if (elementTop + elementHeight < windowHeight) {
           setIsVisible(true)
