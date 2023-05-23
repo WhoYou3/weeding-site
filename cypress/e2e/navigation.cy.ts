@@ -51,5 +51,15 @@ describe("navigation", () => {
         cy.get("a").eq(5).click({ force: true })
         cy.checkUrl("/kontakt/")
       })
+
+    // Check insta, pinterest and facebook links
+    cy.get("footer").within(() => {
+      cy.get(".parts__IconsContainer-sc-17tspk9-4").within(() => {
+        cy.get("a").eq(0).click()
+        cy.get("a").eq(1).click()
+        cy.get("a").eq(2).click()
+        cy.wait(100)
+      })
+    })
   })
 })
